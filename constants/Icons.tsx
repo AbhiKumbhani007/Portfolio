@@ -108,7 +108,7 @@ export const ActiveRing = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="35"
-      height="40"
+      height="35"
       viewBox="0 0 36 40"
       fill="none"
     >
@@ -125,7 +125,7 @@ export const InActiveRing = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="35"
-      height="40"
+      height="35"
       viewBox="0 0 36 40"
       fill="none"
     >

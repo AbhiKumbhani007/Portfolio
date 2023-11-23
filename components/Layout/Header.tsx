@@ -57,7 +57,7 @@ const navLinks = [
   },
 ];
 
-function Header() {
+function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef(null);
 
@@ -84,13 +84,16 @@ function Header() {
           className="flex items-center justify-between lg:col-span-1"
           style={{
             filter: isOpen ? "blur(2px)" : "none",
-            transition: "filter 0.6s ease-in-out",
+            transition: "filter 0.3s ease-in-out",
           }}
         >
-          <div className="flex items-center gap-4">
+          <div
+            className="flex items-center gap-4 cursor-pointer"
+            onClick={() => router.push("/")}
+          >
             <Logo height={imageWidthHeight} width={imageWidthHeight} />
             <p
-              className={`text-[#445964] font-extrabold text-xl xl:text-3xl flex-nowrap ${roboto.className}`}
+              className={`text-[#445964] font-extrabold text-2xl xl:text-3xl flex-nowrap ${roboto.className}`}
             >
               Matheus Campos
             </p>
@@ -114,7 +117,10 @@ function Header() {
               base: "flex",
               lg: "none",
             }}
-            onClick={onOpen}
+            onClick={() => {
+              onOpen();
+              handleChange(true);
+            }}
           />
         </div>
 
@@ -130,6 +136,7 @@ function Header() {
                 textUnderlineOffset: activeLink === link.href ? "5px" : "",
                 transition: "all 0.3s ease-in-out",
               }}
+              className="capitalize"
             >
               <Link href={link.href}>{link.name}</Link>
             </li>
@@ -138,8 +145,13 @@ function Header() {
         <Drawer
           isOpen={isOpen}
           placement="right"
-          onClose={onClose}
+          onClose={() => {
+            onClose();
+            handleChange(false);
+          }}
           finalFocusRef={btnRef}
+          variant="secondary"
+          size="xs"
         >
           <DrawerContent
             bg={"#f8f8f8"}
@@ -157,10 +169,18 @@ function Header() {
                 {navLinks.map((link) => (
                   <li
                     key={link.name}
-                    className="w-full h-16 flex gap-3 items-center"
+                    className="w-full h-16 flex gap-3 items-center capitalize"
                   >
                     {link.icon}
-                    <Link href={link.href}>{link.name}</Link>
+                    <Link
+                      href={link.href}
+                      onClick={() => {
+                        onClose();
+                        handleChange(false);
+                      }}
+                    >
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
