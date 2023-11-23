@@ -5,9 +5,10 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body>
+        <title>Matheus Compos</title>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }

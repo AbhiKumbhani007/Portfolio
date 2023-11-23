@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/Layout/Header";
 import "@/styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";

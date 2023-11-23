@@ -1,3 +1,4 @@
+import { Logo } from "@/constants/Icons";
 import {
   Drawer,
   DrawerBody,
@@ -8,9 +9,9 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Roboto } from "next/font/google";
-import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 import { FaUserAstronaut } from "react-icons/fa6";
 import { GoHomeFill } from "react-icons/go";
 import { GrContact } from "react-icons/gr";
@@ -31,27 +32,27 @@ const navLinks = [
   },
   {
     name: "sobre",
-    href: "/sobre",
+    href: "/about",
     icon: <FaUserAstronaut size={22} />,
   },
   {
-    name: "portifólio",
-    href: "/portifólio",
+    name: "portifolio",
+    href: "/portfolio",
     icon: <MdWork size={25} />,
   },
   {
-    name: "serviços",
-    href: "/serviços",
+    name: "servicos",
+    href: "/services",
     icon: <RiServiceFill size={25} />,
   },
   {
     name: "resumo",
-    href: "/resumo",
+    href: "/resume",
     icon: <HiDocumentDuplicate size={25} />,
   },
   {
     name: "contato",
-    href: "/contato",
+    href: "/contact",
     icon: <GrContact size={22} />,
   },
 ];
@@ -60,11 +61,21 @@ function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef(null);
 
+  const [activeLink, setActiveLink] = useState<any>("");
+
   const imageWidthHeight = useBreakpointValue({
     base: 30,
-    lg: 50,
+    lg: 51,
     md: 40,
   });
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const path = router.asPath;
+
+    setActiveLink(path);
+  }, [router]);
 
   return (
     <header className={"fixed top-0 w-full z-30 bg-white"}>
@@ -77,13 +88,7 @@ function Header() {
           }}
         >
           <div className="flex items-center gap-4">
-            <Image
-              src="/icons/logo.svg"
-              alt="logo"
-              width={imageWidthHeight}
-              height={imageWidthHeight}
-              layout="intrinsic"
-            />
+            <Logo height={imageWidthHeight} width={imageWidthHeight} />
             <p
               className={`text-[#445964] font-extrabold text-xl xl:text-3xl flex-nowrap ${roboto.className}`}
             >
@@ -117,7 +122,15 @@ function Header() {
           className={`col-start-2 lg:col-start-3 justify-end gap-4 xl:gap-10 md:gap-5 items-center text-[#445964] text-lg lg:text-xl font-medium hidden lg:flex ${roboto.className}`}
         >
           {navLinks.map((link) => (
-            <li key={link.name}>
+            <li
+              key={link.name}
+              style={{
+                textDecoration: activeLink === link.href ? "underline" : "",
+                textDecorationThickness: activeLink === link.href ? "2px" : "",
+                textUnderlineOffset: activeLink === link.href ? "5px" : "",
+                transition: "all 0.3s ease-in-out",
+              }}
+            >
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}
@@ -139,7 +152,7 @@ function Header() {
             <DrawerCloseButton />
             <DrawerBody display={"flex"} justifyContent={"center"} p={10}>
               <ul
-                className={`flex-col flex items-center text-[#445964] text-lg  font-medium ${roboto.className}`}
+                className={`flex-col flex items-center text-[#445964] text-lg  font-medium ${roboto.className} `}
               >
                 {navLinks.map((link) => (
                   <li
