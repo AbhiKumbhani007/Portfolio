@@ -178,6 +178,15 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
                         onClose();
                         handleChange(false);
                       }}
+                      style={{
+                        textDecoration:
+                          activeLink === link.href ? "underline" : "",
+                        textDecorationThickness:
+                          activeLink === link.href ? "2px" : "",
+                        textUnderlineOffset:
+                          activeLink === link.href ? "5px" : "",
+                        transition: "all 0.3s ease-in-out",
+                      }}
                     >
                       {link.name}
                     </Link>
