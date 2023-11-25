@@ -13,7 +13,6 @@ const roboto = Roboto({
 });
 
 export default function Home({ isOpen }: { isOpen: boolean }) {
-  console.log("isOpen: ", isOpen);
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   const socialMedia = [
