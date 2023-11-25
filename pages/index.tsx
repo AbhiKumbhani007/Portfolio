@@ -41,7 +41,7 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
 
   return (
     <div
-      className="max-w-screen-2xl mt-20 xl:mt-[5%] lg:mt-[15%]  px-8 xl:px-16 mx-auto overflow-hidden"
+      className="max-w-screen-2xl mt-20 xl:mt-[5%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-hidden"
       style={{
         filter: isOpen ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
@@ -49,7 +49,7 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
     >
       <ScrollAnimationWrapper className="flex justify-center items-center">
         <motion.div
-          className="grid grid-flow-row sm:grid-flow-col lg:grid-rows-1 md:grid-rows-1 sm:grid-cols-2 gap-8 py-6 sm:py-16"
+          className="flex lg:flex-row flex-col-reverse justify-between gap-8 py-6 sm:py-16 w-full"
           variants={scrollAnimation}
         >
           <div className=" flex flex-col justify-end items-center lg:items-start md:items-start sm:items-start gap-16 lg:gap-20 w-full lg:w-[70%] row-start-2 sm:row-start-1 text-[#445964]">
@@ -77,7 +77,10 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
             </div>
           </div>
           <div className="flex w-full justify-end">
-            <motion.div className="h-full w-full" variants={scrollAnimation}>
+            <motion.div
+              className="h-full w-full contents"
+              variants={scrollAnimation}
+            >
               <Image src="/icons/Art.svg" width={705} height={600} alt="art" />
             </motion.div>
           </div>
