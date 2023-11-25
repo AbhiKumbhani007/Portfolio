@@ -107,23 +107,56 @@ export default function About({ isOpen }: { isOpen: boolean }) {
               <p className="text-[#445964]">Skills</p>
             </div>
             <div className="grid grid-rows-1 grid-cols-1 lg:grid-rows-2 lg:grid-cols-4 md:grid-rows-4 md:grid-cols-2 lg:gap-x-44 lg:gap-y-10 md:gap-y-10 gap-y-10 w-full pt-10">
-              {skills.map((skill) => (
-                <div
+              {skills.map((skill, index) => (
+                <motion.div
                   key={skill.id}
                   className="flex flex-col items-center gap-2"
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      type: "spring",
+                      duration: 2,
+                    },
+                  }}
                 >
                   <p className="text-xl font-semibold text-[#445964]">
                     {skill.name}
                   </p>
                   <div className="flex justify-center items-center gap-1">
                     {Array.from({ length: skill.active }, (_, i) => (
-                      <ActiveRing />
+                      <motion.div
+                        initial={{ opacity: 0, x: -100 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: {
+                            type: "spring",
+                            duration: 3,
+                          },
+                        }}
+                      >
+                        <ActiveRing />
+                      </motion.div>
                     ))}
                     {Array.from({ length: skill.inactive }, (_, i) => (
-                      <InActiveRing />
+                      <motion.div
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: {
+                            type: "spring",
+                            duration: 3,
+                          },
+                        }}
+                      >
+                        <InActiveRing />
+                      </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

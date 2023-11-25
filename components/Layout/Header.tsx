@@ -41,13 +41,13 @@ const navLinks = [
     icon: <MdWork size={25} />,
   },
   {
-    name: "servicos",
-    href: "/services",
+    name: "techs",
+    href: "/techs",
     icon: <RiServiceFill size={25} />,
   },
   {
-    name: "resumo",
-    href: "/resume",
+    name: "Experiência",
+    href: "/testimonial",
     icon: <HiDocumentDuplicate size={25} />,
   },
   {

@@ -5,6 +5,7 @@ import getScrollAnimation from "@/utils/getScrollAnimation";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useMemo } from "react";
 
 const roboto = Roboto({
@@ -14,6 +15,8 @@ const roboto = Roboto({
 
 export default function Home({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+
+  const router = useRouter();
 
   const socialMedia = [
     {
@@ -61,7 +64,12 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
                 Seja bem-vindo ao meu portifólio website
               </p>
             </div>
-            <ButtonPrimary className="w-fit capitalize">
+            <ButtonPrimary
+              className="w-fit capitalize"
+              onClick={() => {
+                router.push("/about");
+              }}
+            >
               sobre mim
             </ButtonPrimary>
             <div className="flex items-center gap-6 justify-center w-fit lg:w-[165px] xl:w-fit">
