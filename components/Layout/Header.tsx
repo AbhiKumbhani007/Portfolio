@@ -157,7 +157,7 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
             bg={"#f8f8f8"}
             style={{
               boxShadow:
-                "20px 20px 50px rgba(0, 0, 0, 0.05), -20px -20px 50px rgba(255, 255, 255, 0.7)",
+                "20px 20px 50px rgba(0, 0, 0, 0.05), -10px -10px 50px rgba(255, 255, 255, 0.7)",
               borderRadius: "15px",
             }}
           >
