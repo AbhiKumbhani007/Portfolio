@@ -13,26 +13,26 @@ const roboto = Roboto({
 function portfolio({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
-  const [selectedFilter, setSelectedFilter] = React.useState(1);
+  // const [selectedFilter, setSelectedFilter] = React.useState(1);
 
-  const portfolioFilterButton = [
-    {
-      id: 1,
-      name: "Todos",
-    },
-    {
-      id: 2,
-      name: "Web App",
-    },
-    {
-      id: 3,
-      name: "Data Analysis",
-    },
-    {
-      id: 4,
-      name: "Outros",
-    },
-  ];
+  // const portfolioFilterButton = [
+  //   {
+  //     id: 1,
+  //     name: "Todos",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Web App",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Data Analysis",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Outros",
+  //   },
+  // ];
 
   return (
     <div
@@ -75,7 +75,7 @@ function portfolio({ isOpen }: { isOpen: boolean }) {
                 </h4>
               </div>
             </div>
-            <div className="grid lg:grid-row-1 lg:grid-cols-4 grid-cols-2 gap-5 w-full">
+            {/* <div className="grid lg:grid-row-1 lg:grid-cols-4 grid-cols-2 gap-5 w-full">
               {portfolioFilterButton.map((item) => (
                 <Button
                   key={item.id}
@@ -95,9 +95,9 @@ function portfolio({ isOpen }: { isOpen: boolean }) {
                   {item.name}
                 </Button>
               ))}
-            </div>
+            </div> */}
           </div>
-          <div className="flex justify-center items-center w-full">
+          <div className="flex justify-center items-center w-full pt-0 lg:pt-10">
             <div
               className={`flex  w-full flex-col items-center justify-center ${roboto.className}`}
             >
