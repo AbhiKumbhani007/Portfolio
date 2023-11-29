@@ -1,4 +1,4 @@
-import { Logo } from "@/constants/Icons";
+import { Logo } from "@/constants/Icons/Icons";
 import {
   Drawer,
   DrawerBody,
@@ -31,27 +31,27 @@ const navLinks = [
     icon: <GoHomeFill size={25} />,
   },
   {
-    name: "sobre",
+    name: "About",
     href: "/about",
     icon: <FaUserAstronaut size={22} />,
   },
   {
-    name: "portifolio",
+    name: "Portfolio",
     href: "/portfolio",
     icon: <MdWork size={25} />,
   },
   {
-    name: "techs",
+    name: "Techs",
     href: "/techs",
     icon: <RiServiceFill size={25} />,
   },
   {
-    name: "Experiência",
+    name: "Experience",
     href: "/testimonial",
     icon: <HiDocumentDuplicate size={25} />,
   },
   {
-    name: "contato",
+    name: "contact",
     href: "/contact",
     icon: <GrContact size={22} />,
   },
@@ -95,7 +95,7 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
             <p
               className={`text-[#445964] font-extrabold text-2xl xl:text-3xl flex-nowrap ${roboto.className}`}
             >
-              Matheus Campos
+              Abhishek Kumbhani
             </p>
           </div>
           <IconButton

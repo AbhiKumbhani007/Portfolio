@@ -1,6 +1,6 @@
 import ButtonPrimary from "@/components/Misc/ButtonPrimary";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
-import { Github, Instagram, Linkedin } from "@/constants/Icons";
+import { Github, Instagram, Linkedin } from "@/constants/Icons/SocialLogo";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
@@ -23,7 +23,7 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
       id: 1,
       alt: "github",
       href: "",
-      src: <Github />,
+      src: <Github height={30} width={30} />,
     },
     {
       id: 2,
@@ -54,14 +54,14 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
         >
           <div className=" flex flex-col justify-end items-center lg:items-start md:items-start sm:items-start gap-16 lg:gap-20 w-full lg:w-[70%] row-start-2 sm:row-start-1 text-[#445964]">
             <div className="flex flex-col justify-center items-center lg:items-start md:items-start sm:items-start">
-              <p className={`text-md ${roboto.className}`}>Olá pessoas,</p>
+              <p className={`text-md ${roboto.className}`}>Hello people,</p>
               <h1
                 className={`text-4xl lg:text-5xl font-extrabold text-black-600 leading-normal break-words ${roboto.className} text-center lg:text-left md:text-left sm:text-left`}
               >
-                EU SOU UM PROGRAMADOR
+                I AM A PROGRAMMER
               </h1>
               <p className={`text-lg font-medium ${roboto.className}`}>
-                Seja bem-vindo ao meu portifólio website
+                Welcome to my portfolio website
               </p>
             </div>
             <ButtonPrimary
@@ -70,10 +70,12 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
                 router.push("/about");
               }}
             >
-              sobre mim
+              About Me
             </ButtonPrimary>
             <div className="flex items-center gap-6 justify-center w-fit lg:w-[165px] xl:w-fit">
-              {socialMedia.map((social) => social.src)}
+              {socialMedia.map((social) => (
+                <div key={social.id}>{social.src}</div>
+              ))}
             </div>
           </div>
           <div className="flex w-full justify-end">

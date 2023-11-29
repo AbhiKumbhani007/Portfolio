@@ -4,7 +4,7 @@ import { Roboto } from "next/font/google";
 import Image from "next/image";
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { ActiveRing, InActiveRing } from "@/constants/Icons";
+import { ActiveRing, InActiveRing } from "@/constants/Icons/Icons";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -16,51 +16,51 @@ export default function About({ isOpen }: { isOpen: boolean }) {
   const skills = [
     {
       id: 1,
-      name: "Python",
+      name: "Js/Ts",
       active: 4,
       inactive: 1,
     },
     {
       id: 2,
-      name: "HTML",
-      active: 4,
-      inactive: 1,
-    },
-    {
-      id: 3,
-      name: "React",
+      name: "HTML/CSS",
       active: 3,
       inactive: 2,
     },
     {
+      id: 3,
+      name: "Tailwind",
+      active: 4,
+      inactive: 1,
+    },
+    {
       id: 4,
-      name: "C",
+      name: "SqLite3",
       active: 2,
       inactive: 3,
     },
     {
       id: 5,
-      name: "Javascript",
-      active: 3,
-      inactive: 2,
+      name: "React.JS",
+      active: 4,
+      inactive: 1,
     },
     {
       id: 6,
-      name: "CSS",
-      active: 3,
-      inactive: 2,
+      name: "Electron.JS",
+      active: 2,
+      inactive: 3,
     },
     {
       id: 7,
-      name: "MySQL",
+      name: "Next.Js",
       active: 3,
       inactive: 2,
     },
     {
       id: 8,
-      name: "Postgres",
-      active: 2,
-      inactive: 3,
+      name: "Git",
+      active: 3,
+      inactive: 2,
     },
   ];
 
@@ -94,13 +94,13 @@ export default function About({ isOpen }: { isOpen: boolean }) {
           <div className=" flex flex-col justify-center items-center gap-10 w-full max-w-3xl">
             <Image src="/icons/about.svg" width={120} height={120} alt="" />
             <div className="flex gap-3 text-3xl lg:text-5xl font-bold tracking-wider">
-              <p className="text-[#445964]">Matheus</p>
-              <p className="text-[#263138]">Campos</p>
+              <p className="text-[#445964]">Abhishek</p>
+              <p className="text-[#263138]">Kumbhani</p>
             </div>
             <p className="text-center text-base lg:text-lg text-[#445964] font-medium tracking-normal leading-8 lg:leading-relaxed">
-              My name is Matheus Amauri de Jesus Campos 👋 I'm from Brazil, São
-              José dos Campos/SP. Studying, 4th period, Systems Analysis and
-              Development at the Fatec - São José dos Campos.
+              I'm Abhishek Kumbhani 👋, a front-end developer passionate about
+              user-friendly websites with a focus on aesthetics, responsiveness,
+              and seamless online experiences.
             </p>
             <div className="flex gap-3 text-5xl font-bold tracking-wider pt-10">
               <p className="text-[#263138]">Hard</p>

@@ -1,18 +1,28 @@
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 import {
+  AntDesign,
   CSS,
-  EclipseIde,
+  ChakraUI,
+  ElectronJs,
   HTML,
   JS,
-  Javascript,
-  Python,
+  Jira,
+  MUI,
+  NextJs,
   REACT,
-} from "@/constants/Icons";
+  Redux,
+  Sqlite,
+  Tailwind,
+  TypeScript,
+  VsCode,
+} from "@/constants/Icons/TechLogo";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { useBreakpointValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import { useMemo } from "react";
+import styles from "../styles/tech.module.css";
+import { Github } from "@/constants/Icons/SocialLogo";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -56,43 +66,12 @@ function Techs({ isOpen }: { isOpen: boolean }) {
           className={`flex justify-center items-center ${roboto.className}`}
         >
           <div className=" flex flex-col justify-center items-center w-full max-w-3xl">
-            <div className="flex gap-3 text-3xl lg:text-5xl font-bold tracking-wider">
-              <p className="text-[#445964]">Minhas</p>
-              <p className="text-[#263138]">Techs</p>
-            </div>
-            <p className="text-center text-base lg:text-lg text-[#445964] font-medium tracking-normal leading-8 lg:leading-relaxed pt-16 lg:pt-20">
-              Tecnologias
-            </p>
-            <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-3">
-              <p className="text-[#445964]">Já</p>
-              <p className="text-[#263138]">utilizadas</p>
+            <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider">
+              <p className={`${styles.heading}`}>Technologies</p>
             </div>
             <motion.div
-              className="flex gap-x-8 lg:gap-x-20 pt-10"
+              className="grid lg:grid-cols-6 grid-cols-3 md:grid-cols-6 gap-8 lg:gap-x-36 lg:gap-y-20 pt-10"
               initial={{ opacity: 0, x: 100 }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: "spring",
-                  duration: 4,
-                },
-              }}
-            >
-              <Javascript height={size} width={size} />
-              <Python height={size} width={size} />
-              <EclipseIde height={size} width={size} />
-            </motion.div>
-            <p className="text-center text-base lg:text-lg text-[#445964] font-medium tracking-normal leading-8 lg:leading-relaxed pt-20">
-              Tecnologias
-            </p>
-            <div className="flex flex-col lg:flex-row text-center gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-3">
-              <p className="text-[#445964]">Atualmente</p>
-              <p className="text-[#263138]">Desenvolvendo</p>
-            </div>
-            <motion.div
-              className="grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-1 gei gap-8 lg:gap-x-20 pt-10"
-              initial={{ opacity: 0, x: -100 }}
               animate={{
                 opacity: 1,
                 x: 0,
@@ -105,11 +84,72 @@ function Techs({ isOpen }: { isOpen: boolean }) {
               <HTML height={size} width={size} />
               <CSS height={size} width={size} />
               <JS height={size} width={size} />
+              <TypeScript height={size} width={size} />
               <REACT height={size} width={size} />
+              <ElectronJs height={size} width={size} />
+            </motion.div>
+            <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
+              <p className={`${styles.heading_reverse}`}>Libraries</p>
+            </div>
+            <motion.div
+              className="grid lg:grid-cols-6 grid-cols-3 md:grid-cols-6 gap-8 lg:gap-x-36 lg:gap-y-20 pt-10"
+              initial={{ opacity: 0, x: -100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: {
+                  type: "spring",
+                  duration: 4,
+                },
+              }}
+            >
+              <Redux height={size} width={size} />
+              <NextJs height={size} width={size} />
+              <Tailwind height={size} width={size} />
+              <MUI height={size} width={size} />
+              <ChakraUI height={size} width={size} />
+              <AntDesign height={size} width={size} />
+            </motion.div>
+            <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
+              <p className={`${styles.heading}`}>Database</p>
+            </div>
+            <motion.div
+              className="grid lg:grid-cols-1 grid-cols-1 md:grid-cols-1 gap-8 lg:gap-x-36 lg:gap-y-20 pt-10 "
+              initial={{ opacity: 0, x: 100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: {
+                  type: "spring",
+                  duration: 4,
+                },
+              }}
+            >
+              <Sqlite height={size} width={size} />
+            </motion.div>
+            <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
+              <p className={`${styles.heading_reverse}`}>Platforms</p>
+            </div>
+            <motion.div
+              className="grid lg:grid-cols-3 grid-cols-3 md:grid-cols-3 gap-8 lg:gap-x-20 lg:gap-y-20 pt-10 justify-center"
+              initial={{ opacity: 0, x: -100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: {
+                  type: "spring",
+                  duration: 4,
+                },
+              }}
+            >
+              <Github height={size} width={size} />
+              <VsCode height={size} width={size} />
+              <Jira height={size} width={size} />
             </motion.div>
           </div>
         </motion.div>
       </ScrollAnimationWrapper>
+      <div className="h-16" />
     </div>
   );
 }

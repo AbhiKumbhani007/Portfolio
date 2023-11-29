@@ -64,14 +64,15 @@ function portfolio({ isOpen }: { isOpen: boolean }) {
           <div className="flex flex-col justify-center items-start lg:items-start gap-6 lg:gap-16 w-full max-w-3xl">
             <div className="flex flex-col justify-start items-start">
               <h1 className="text-4xl lg:text-5xl font-extrabold text-[#263138]">
-                Meu
+                My
               </h1>
-              <div className="flex flex-col lg:flex-row justify-center items-start lg:items-end lg:gap-20 text-[#445964] max-w-xl">
+              <div className="flex flex-col lg:flex-row justify-center items-start lg:items-end lg:gap-20 text-[#445964] max-w-2xl">
                 <h1 className="text-4xl lg:text-5xl font-extrabold ">
-                  Portifólio
+                  Portfolio
                 </h1>
                 <h4 className="text-lg lg:text-xl font-semibold">
-                  Estes são alguns dos trabalhos e projetos que já realizei
+                  These are some of the works and projects I have already
+                  carried out
                 </h4>
               </div>
             </div>

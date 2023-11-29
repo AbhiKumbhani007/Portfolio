@@ -1,6 +1,4 @@
-import ButtonPrimary from "@/components/Misc/ButtonPrimary";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
-import { Github, Instagram, Linkedin } from "@/constants/Icons";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import {
   Button,
@@ -11,8 +9,6 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
-import Image from "next/image";
-import { useRouter } from "next/router";
 import { useMemo } from "react";
 
 const roboto = Roboto({
@@ -51,7 +47,7 @@ function Contact({ isOpen }: { isOpen: boolean }) {
         >
           <div className=" flex flex-col justify-center items-center w-full max-w-3xl">
             <div className="flex gap-3 text-3xl lg:text-5xl font-bold tracking-wider">
-              <p className="text-[#445964]">Contacte</p>-
+              <p className="text-[#445964]">Contacte</p>
               <p className="text-[#263138]">Me</p>
             </div>
           </div>
@@ -60,13 +56,13 @@ function Contact({ isOpen }: { isOpen: boolean }) {
               <FormLabel>
                 <h5 className="text-[#445964] font-bold text-xl w-24">Name</h5>
               </FormLabel>
-              <Input placeholder="Name" focusBorderColor="#445964" />
+              <Input placeholder="David Smith" focusBorderColor="#445964" />
             </FormControl>
             <FormControl>
               <FormLabel>
                 <h5 className="text-[#445964] font-bold text-xl w-24">Email</h5>
               </FormLabel>
-              <Input placeholder="Email" focusBorderColor="#445964" />
+              <Input placeholder="xyz@gmail.com" focusBorderColor="#445964" />
             </FormControl>
             <FormControl>
               <FormLabel>

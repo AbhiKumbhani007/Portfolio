@@ -1,6 +1,6 @@
 import ButtonPrimary from "@/components/Misc/ButtonPrimary";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
-import { Github, Instagram, Linkedin } from "@/constants/Icons";
+import { Github, Instagram, Linkedin } from "@/constants/Icons/Icons";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";

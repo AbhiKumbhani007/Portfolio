@@ -1,0 +1,11 @@
+.heading {
+  background: linear-gradient(to right, #445964, #263138);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.heading_reverse {
+  background: linear-gradient(to right, #263138, #445964);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}

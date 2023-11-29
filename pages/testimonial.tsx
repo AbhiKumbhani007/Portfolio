@@ -1,5 +1,5 @@
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
-import { DoubleQuotes } from "@/constants/Icons";
+import { DoubleQuotes } from "@/constants/Icons/Icons";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
