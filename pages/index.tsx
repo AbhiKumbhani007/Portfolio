@@ -92,7 +92,12 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
               className="h-full w-full contents"
               variants={scrollAnimation}
             >
-              <Image src="/icons/Art.svg" width={705} height={600} alt="art" />
+              <Image
+                src="https://svgshare.com/i/10F5.svg"
+                width={705}
+                height={600}
+                alt="art"
+              />
             </motion.div>
           </div>
         </motion.div>

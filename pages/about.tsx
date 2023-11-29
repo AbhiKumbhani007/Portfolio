@@ -92,7 +92,12 @@ export default function About({ isOpen }: { isOpen: boolean }) {
           className={`flex justify-center items-center ${roboto.className}`}
         >
           <div className=" flex flex-col justify-center items-center gap-10 w-full max-w-3xl">
-            <Image src="/icons/about.svg" width={120} height={120} alt="" />
+            <Image
+              src="https://svgshare.com/i/10F6.svg"
+              width={120}
+              height={120}
+              alt=""
+            />
             <div className="flex gap-3 text-3xl lg:text-5xl font-bold tracking-wider">
               <p className="text-[#445964]">Abhishek</p>
               <p className="text-[#263138]">Kumbhani</p>
