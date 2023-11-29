@@ -1,5 +1,6 @@
 import ButtonPrimary from "@/components/Misc/ButtonPrimary";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
+import Typewriter from "@/components/Typewriter";
 import { Github, Instagram, Linkedin } from "@/constants/Icons/SocialLogo";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { motion } from "framer-motion";
@@ -56,11 +57,19 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
             <div className="flex flex-col justify-center items-center lg:items-start md:items-start sm:items-start">
               <p className={`text-md ${roboto.className}`}>Hello people,</p>
               <h1
-                className={`text-4xl lg:text-5xl font-extrabold text-black-600 leading-normal break-words ${roboto.className} text-center lg:text-left md:text-left sm:text-left`}
+                className={`flex items-center text-3xl lg:text-5xl font-extrabold text-black-600 leading-normal break-words ${roboto.className} text-center lg:text-left md:text-left sm:text-left gap-1.5 lg:gap-3.5 `}
               >
-                I AM A PROGRAMMER
+                I'm a
               </h1>
-              <p className={`text-lg font-medium ${roboto.className}`}>
+              <h1
+                className={`flex items-center h-8 lg:h-14 text-3xl lg:text-5xl font-extrabold text-black-600 leading-normal break-words ${roboto.className} text-center lg:text-left md:text-left sm:text-left gap-1.5 lg:gap-3.5 `}
+              >
+                {" "}
+                <Typewriter
+                  texts={["Programmer", "Web Developer", "React Developer"]}
+                />
+              </h1>
+              <p className={`text-lg font-medium pt-3 ${roboto.className}`}>
                 Welcome to my portfolio website
               </p>
             </div>

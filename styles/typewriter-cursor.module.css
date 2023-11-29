@@ -1,0 +1,20 @@
+.typewriter_cursor {
+  display: flex;
+  margin-left: 5px;
+  width: 3px;
+  height: 30px;
+  background-color: currentColor;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+    height: 10px;
+  }
+  50% {
+    opacity: 1;
+    height: 30px;
+  }
+}

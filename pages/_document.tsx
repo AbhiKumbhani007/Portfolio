@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body>
-        <title>Matheus Compos</title>
+        <title>Abhishek Kumbhani</title>
         <Main />
         <NextScript />
       </body>
