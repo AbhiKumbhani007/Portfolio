@@ -92,14 +92,7 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
             className="flex items-center gap-4 cursor-pointer"
             onClick={() => router.push("/")}
           >
-            <Image
-              // src="https://iili.io/JxsTv0x.png"
-              src="/logo.png"
-              width={60}
-              height={60}
-              alt="logo"
-            />
-            {/* <Logo height={imageWidthHeight} width={imageWidthHeight} /> */}
+            <Image src="/logo.png" width={60} height={60} alt="logo" />
             <p
               className={`text-[#445964] font-extrabold text-2xl xl:text-3xl flex-nowrap ${roboto.className}`}
             >
