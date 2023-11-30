@@ -1,10 +1,10 @@
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
+import { ActiveRing, InActiveRing } from "@/constants/Icons/Icons";
 import getScrollAnimation from "@/utils/getScrollAnimation";
+import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import Image from "next/image";
-import React, { useMemo } from "react";
-import { motion } from "framer-motion";
-import { ActiveRing, InActiveRing } from "@/constants/Icons/Icons";
+import { useMemo } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -93,8 +93,15 @@ export default function About({ isOpen }: { isOpen: boolean }) {
         >
           <div className=" flex flex-col justify-center items-center gap-6 w-full max-w-3xl">
             <div className="rounded-full p-4  hover:shadow-2xl duration-1000 hover:bg-slate-300 ease-in-out">
-              <Image src="/about_logo_2.png" width={200} height={200} alt="" className="hover:-translate-y-1 hover:translate-x-1 duration-1000 ease-in-out" />
+              <Image
+                src="/about_logo_2.png"
+                width={200}
+                height={200}
+                alt=""
+                className="hover:-translate-y-1 hover:translate-x-1 duration-1000 ease-in-out"
+              />
             </div>
+
             <div className="flex gap-3 text-3xl lg:text-5xl font-bold tracking-wider">
               <p className="text-[#445964]">Abhishek</p>
               <p className="text-[#263138]">Kumbhani</p>
