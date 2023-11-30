@@ -93,7 +93,8 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
             onClick={() => router.push("/")}
           >
             <Image
-              src="https://iili.io/JxsTv0x.png"
+              // src="https://iili.io/JxsTv0x.png"
+              src="/logo.png"
               width={60}
               height={60}
               alt="logo"
