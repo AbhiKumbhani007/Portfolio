@@ -1,0 +1,19 @@
+.html {
+  fill: var(--svg-html, #445964); /* default color with fallback */
+  transition: all 0.3s ease-in-out; /* Apply transition here */
+}
+
+.html:hover {
+  --svg-html: #e44d26;
+  fill: var(--svg-html);
+}
+
+.css {
+  fill: var(--svg-color, #000000); /* default color with fallback */
+  transition: all 0.3s ease-in-out; /* Apply transition here */
+}
+
+.css:hover {
+  --svg-color: #264de4; /* blue color on hover */
+  fill: var(--svg-color);
+}

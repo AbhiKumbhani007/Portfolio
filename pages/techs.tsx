@@ -17,12 +17,13 @@ import {
   VsCode,
 } from "@/constants/Icons/TechLogo";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import { useMemo } from "react";
 import styles from "../styles/tech.module.css";
 import { Github } from "@/constants/Icons/SocialLogo";
+import Image from "next/image";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -81,7 +82,18 @@ function Techs({ isOpen }: { isOpen: boolean }) {
                 },
               }}
             >
+              {/* <Box
+                w={size}
+                h={size}
+                filter={"grayscale(1)"}
+                _hover={{
+                  filter: "grayscale(0)",
+                }}
+                transition={"all 0.3s ease-in-out"}
+              >
+              </Box> */}
               <HTML height={size} width={size} />
+
               <CSS height={size} width={size} />
               <JS height={size} width={size} />
               <TypeScript height={size} width={size} />
