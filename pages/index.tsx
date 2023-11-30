@@ -5,9 +5,12 @@ import { Github, Instagram, Linkedin } from "@/constants/Icons/SocialLogo";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
+import { useLottie } from "lottie-react";
+import animation from "../constants/animations/home_illustration.json";
+import Image from "next/image";
+import { useBreakpointValue } from "@chakra-ui/react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -17,7 +20,25 @@ const roboto = Roboto({
 export default function Home({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
+  const height = useBreakpointValue({
+    base: "auto",
+    lg: 600,
+    md: "auto",
+  });
+
   const router = useRouter();
+
+  const options = {
+    animationData: animation,
+    loop: true,
+  };
+
+  const style = {
+    height: height,
+    width: 705,
+  };
+
+  const { View } = useLottie(options, style);
 
   const socialMedia = [
     {
@@ -42,7 +63,7 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
 
   return (
     <div
-      className="max-w-screen-2xl mt-20 xl:mt-[5%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-hidden"
+      className="max-w-screen-2xl mt-12 xl:mt-[5%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-hidden"
       style={{
         filter: isOpen ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
@@ -91,13 +112,18 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
             <motion.div
               className="h-full w-full contents"
               variants={scrollAnimation}
+              style={{
+                width: 705,
+                height: 600,
+              }}
             >
-              <Image
+              {/* <Image
                 src="https://svgshare.com/i/10F5.svg"
                 width={705}
                 height={600}
                 alt="art"
-              />
+              /> */}
+              {View}
             </motion.div>
           </div>
         </motion.div>
