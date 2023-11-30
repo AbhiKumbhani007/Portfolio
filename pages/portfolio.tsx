@@ -1,9 +1,8 @@
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import { Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -12,27 +11,6 @@ const roboto = Roboto({
 
 function portfolio({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
-
-  // const [selectedFilter, setSelectedFilter] = React.useState(1);
-
-  // const portfolioFilterButton = [
-  //   {
-  //     id: 1,
-  //     name: "Todos",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Web App",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Data Analysis",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Outros",
-  //   },
-  // ];
 
   return (
     <div
@@ -76,27 +54,6 @@ function portfolio({ isOpen }: { isOpen: boolean }) {
                 </h4>
               </div>
             </div>
-            {/* <div className="grid lg:grid-row-1 lg:grid-cols-4 grid-cols-2 gap-5 w-full">
-              {portfolioFilterButton.map((item) => (
-                <Button
-                  key={item.id}
-                  className="font-semibold"
-                  bg={selectedFilter === item.id ? "#263138" : "#DFDFDF"}
-                  color={selectedFilter === item.id ? "#FFFFFF" : "#263138"}
-                  py={2}
-                  px={4}
-                  _hover={{
-                    bg: selectedFilter === item.id ? "#263138" : "#DFDFDF",
-                    color: selectedFilter === item.id ? "#FFFFFF" : "#263138",
-                  }}
-                  onClick={() => {
-                    setSelectedFilter(item.id);
-                  }}
-                >
-                  {item.name}
-                </Button>
-              ))}
-            </div> */}
           </div>
           <div className="flex justify-center items-center w-full pt-0 lg:pt-10">
             <div
