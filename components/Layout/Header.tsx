@@ -9,6 +9,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Roboto } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
@@ -63,11 +64,11 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
 
   const [activeLink, setActiveLink] = useState<any>("");
 
-  const imageWidthHeight = useBreakpointValue({
-    base: 30,
-    lg: 51,
-    md: 40,
-  });
+  // const imageWidthHeight = useBreakpointValue({
+  //   base: 60,
+  //   lg: 60,
+  //   md: 60,
+  // });
 
   const router = useRouter();
 
@@ -91,7 +92,13 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
             className="flex items-center gap-4 cursor-pointer"
             onClick={() => router.push("/")}
           >
-            <Logo height={imageWidthHeight} width={imageWidthHeight} />
+            <Image
+              src="https://iili.io/JxsTv0x.png"
+              width={60}
+              height={60}
+              alt="logo"
+            />
+            {/* <Logo height={imageWidthHeight} width={imageWidthHeight} /> */}
             <p
               className={`text-[#445964] font-extrabold text-2xl xl:text-3xl flex-nowrap ${roboto.className}`}
             >

@@ -7,10 +7,9 @@ export default function Document() {
         <link
           rel="icon"
           type="image/x-icon"
-          href="https://svgshare.com/i/10GX.svg"
+          href="https://iili.io/JxsTv0x.png"
         />
       </Head>
-
       <body>
         <title>Abhishek Kumbhani</title>
         <Main />

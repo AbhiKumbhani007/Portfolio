@@ -93,7 +93,7 @@ export default function About({ isOpen }: { isOpen: boolean }) {
         >
           <div className=" flex flex-col justify-center items-center gap-10 w-full max-w-3xl">
             <Image
-              src="https://svgshare.com/i/10F6.svg"
+              src="https://iili.io/JxsTv0x.png"
               width={120}
               height={120}
               alt=""
