@@ -1,13 +1,5 @@
-import { Logo } from "@/constants/Icons/Icons";
-import {
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  IconButton,
-  useBreakpointValue,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { CloseIcon } from "@chakra-ui/icons";
+import { Box, IconButton, useDisclosure } from "@chakra-ui/react";
 import { Roboto } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -64,11 +56,19 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
 
   const [activeLink, setActiveLink] = useState<any>("");
 
-  // const imageWidthHeight = useBreakpointValue({
-  //   base: 60,
-  //   lg: 60,
-  //   md: 60,
-  // });
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   const router = useRouter();
 
@@ -79,8 +79,12 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
   }, [router]);
 
   return (
-    <header className={"fixed top-0 w-full z-30 bg-white"}>
-      <nav className="max-w-screen-2xl px-4 sm:px-8 lg:px-16 mx-auto grid grid-cols-1 lg:grid-cols-3 py-3 sm:py-4">
+    <header
+      className={`fixed top-0 w-full z-30 bg-white duration-700 ${
+        isScrolled ? "shadow-md" : ""
+      }`}
+    >
+      <nav className="max-w-screen-2xl px-4 sm:px-8 lg:px-16 mx-auto grid grid-cols-1 lg:grid-cols-3 py-1 sm:py-4">
         <div
           className="flex items-center justify-between lg:col-span-1"
           style={{
@@ -143,59 +147,48 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
             </li>
           ))}
         </ul>
-        <Drawer
-          isOpen={isOpen}
-          placement="right"
-          onClose={() => {
-            onClose();
-            handleChange(false);
-          }}
-          finalFocusRef={btnRef}
-          variant="secondary"
-          size="xs"
-        >
-          <DrawerContent
-            bg={"#f8f8f8"}
-            style={{
-              boxShadow:
-                "20px 20px 50px rgba(0, 0, 0, 0.05), -10px -10px 50px rgba(255, 255, 255, 0.7)",
-              borderRadius: "15px",
-            }}
-          >
-            <DrawerCloseButton />
-            <DrawerBody display={"flex"} justifyContent={"center"} p={10}>
-              <ul
-                className={`flex-col flex items-center text-[#445964] text-lg  font-medium ${roboto.className} `}
-              >
-                {navLinks.map((link) => (
-                  <li
-                    key={link.name}
-                    className="w-full h-16 flex gap-3 items-center capitalize"
+
+        <Drawer isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+          <Box display={"flex"} justifyContent={"flex-end"} p={5}>
+            <CloseIcon
+              onClick={() => {
+                handleChange(false);
+                onClose();
+              }}
+            />
+          </Box>
+          <Box display={"flex"} justifyContent={"center"} px={10}>
+            <ul
+              className={`flex-col flex items-center text-[#445964] text-lg  font-medium ${roboto.className} `}
+            >
+              {navLinks.map((link) => (
+                <li
+                  key={link.name}
+                  className="w-full h-16 flex gap-3 items-center capitalize"
+                >
+                  {link.icon}
+                  <Link
+                    href={link.href}
+                    onClick={() => {
+                      onClose();
+                      handleChange(false);
+                    }}
+                    style={{
+                      textDecoration:
+                        activeLink === link.href ? "underline" : "",
+                      textDecorationThickness:
+                        activeLink === link.href ? "2px" : "",
+                      textUnderlineOffset:
+                        activeLink === link.href ? "5px" : "",
+                      transition: "all 0.3s ease-in-out",
+                    }}
                   >
-                    {link.icon}
-                    <Link
-                      href={link.href}
-                      onClick={() => {
-                        onClose();
-                        handleChange(false);
-                      }}
-                      style={{
-                        textDecoration:
-                          activeLink === link.href ? "underline" : "",
-                        textDecorationThickness:
-                          activeLink === link.href ? "2px" : "",
-                        textUnderlineOffset:
-                          activeLink === link.href ? "5px" : "",
-                        transition: "all 0.3s ease-in-out",
-                      }}
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </DrawerBody>
-          </DrawerContent>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Box>
         </Drawer>
       </nav>
     </header>
@@ -203,3 +196,20 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
 }
 
 export default Header;
+
+const Drawer = ({ isOpen, children }: any) => {
+  return (
+    <div
+      className={`fixed top-0 right-0 w-56 h-full bg-[#f8f8f8] shadow-md transform ${
+        isOpen ? "translate-x-0" : "translate-x-full"
+      } transition-transform duration-300 ease-in-out`}
+      style={{
+        boxShadow:
+          "20px 20px 50px rgba(0, 0, 0, 0.05), -10px -10px 50px rgba(255, 255, 255, 0.7)",
+        borderRadius: "15px",
+      }}
+    >
+      {children}
+    </div>
+  );
+};

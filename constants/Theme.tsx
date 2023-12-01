@@ -7,7 +7,7 @@ const CustomTheme = extendTheme({
         primary: {
           secondary: {
             dialog: {
-              maxW: "220px",
+              maxW: "220px !important",
             },
           },
         },
