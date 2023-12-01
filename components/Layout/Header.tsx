@@ -1,5 +1,13 @@
-import { CloseIcon } from "@chakra-ui/icons";
-import { Box, IconButton, useDisclosure } from "@chakra-ui/react";
+import { CloseIcon, Icon } from "@chakra-ui/icons";
+import {
+  Box,
+  Flex,
+  IconButton,
+  Switch,
+  useColorMode,
+  useColorModeValue,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { Roboto } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +18,9 @@ import { GoHomeFill } from "react-icons/go";
 import { GrContact } from "react-icons/gr";
 import { HiDocumentDuplicate } from "react-icons/hi2";
 import { MdWork } from "react-icons/md";
+import { WiSunrise, WiMoonrise } from "react-icons/wi";
 import { RiMenu3Fill, RiServiceFill } from "react-icons/ri";
+import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -58,6 +68,12 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
 
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const primary1 = useColorModeValue(lightPrimary1, darkPrimary1);
+
+  const headerBg = useColorModeValue("white", "#1A202C");
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -80,9 +96,10 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
 
   return (
     <header
-      className={`fixed top-0 w-full z-30 bg-white duration-700 ${
+      className={`fixed top-0 w-full z-30 duration-700 ${
         isScrolled ? "shadow-md" : ""
       }`}
+      style={{ backgroundColor: headerBg }}
     >
       <nav className="max-w-screen-2xl px-4 sm:px-8 lg:px-16 mx-auto grid grid-cols-1 lg:grid-cols-3 py-1 sm:py-4">
         <div
@@ -98,7 +115,10 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
           >
             <Image src="/logo.png" width={60} height={60} alt="logo" />
             <p
-              className={`text-[#445964] font-extrabold text-2xl xl:text-3xl flex-nowrap ${roboto.className}`}
+              className={` font-extrabold text-2xl xl:text-3xl flex-nowrap ${roboto.className}`}
+              style={{
+                color: primary1,
+              }}
             >
               Abhishek Kumbhani
             </p>
@@ -130,7 +150,10 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
         </div>
 
         <ul
-          className={`col-start-2 lg:col-start-3 justify-end gap-4 xl:gap-10 md:gap-5 items-center text-[#445964] text-lg lg:text-xl font-medium hidden lg:flex ${roboto.className}`}
+          className={`col-start-2 lg:col-start-3 justify-end gap-4 xl:gap-10 md:gap-5 items-center  text-lg lg:text-xl font-medium hidden lg:flex ${roboto.className}`}
+          style={{
+            color: primary1,
+          }}
         >
           {navLinks.map((link) => (
             <li
@@ -146,6 +169,22 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}
+          <Flex onClick={toggleColorMode} cursor={"pointer"}>
+            <IconButton
+              aria-label="Toggle Color Mode"
+              variant="ghost"
+              size="sm"
+              _hover={{ bg: colorMode === "dark" ? "blue.500" : "yellow.400" }}
+              bg={colorMode === "dark" ? "blue.500" : "yellow.400"}
+              color={"white"}
+            >
+              {colorMode === "dark" ? (
+                <WiMoonrise size={25} />
+              ) : (
+                <WiSunrise size={25} />
+              )}
+            </IconButton>
+          </Flex>
         </ul>
 
         <Drawer isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
@@ -159,7 +198,10 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
           </Box>
           <Box display={"flex"} justifyContent={"center"} px={10}>
             <ul
-              className={`flex-col flex items-center text-[#445964] text-lg  font-medium ${roboto.className} `}
+              className={`flex-col flex items-center text-lg  font-medium ${roboto.className} `}
+              style={{
+                color: primary1,
+              }}
             >
               {navLinks.map((link) => (
                 <li
@@ -187,6 +229,21 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
                   </Link>
                 </li>
               ))}
+              <Flex
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={4}
+                pt={3}
+              >
+                <WiSunrise size={25} />
+                <Switch
+                  isChecked={colorMode === "dark"}
+                  onChange={toggleColorMode}
+                  size="md"
+                  border="black"
+                />
+                <WiMoonrise size={25} />
+              </Flex>
             </ul>
           </Box>
         </Drawer>
@@ -198,15 +255,21 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
 export default Header;
 
 const Drawer = ({ isOpen, children }: any) => {
+  const { colorMode } = useColorMode();
+
   return (
     <div
-      className={`fixed top-0 right-0 w-56 h-full bg-[#f8f8f8] shadow-md transform ${
+      className={`fixed top-0 right-0 w-56 h-full  shadow-md transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
       } transition-transform duration-300 ease-in-out`}
       style={{
-        boxShadow:
-          "20px 20px 50px rgba(0, 0, 0, 0.05), -10px -10px 50px rgba(255, 255, 255, 0.7)",
+        boxShadow: isOpen
+          ? colorMode === "light"
+            ? "20px 20px 50px rgba(0, 0, 0, 0.05), -10px -10px 50px rgba(255, 255, 255, 0.7)"
+            : "20px 20px 50px rgba(0, 0, 0, 0.05), -10px -10px 50px rgba(10, 10, 10, 0.7)"
+          : "none",
         borderRadius: "15px",
+        backgroundColor: colorMode === "light" ? "white" : "#1A202C",
       }}
     >
       {children}

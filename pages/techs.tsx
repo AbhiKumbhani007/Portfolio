@@ -104,7 +104,7 @@ function Techs({ isOpen }: { isOpen: boolean }) {
               <p className={`${styles.heading_reverse}`}>Libraries</p>
             </div>
             <motion.div
-              className="grid lg:grid-cols-6 grid-cols-3 md:grid-cols-6 gap-8 lg:gap-x-36 lg:gap-y-20 pt-10"
+              className="grid lg:grid-cols-5 grid-cols-3 md:grid-cols-5 gap-8 lg:gap-x-36 lg:gap-y-20 pt-10"
               initial={{ opacity: 0, x: -100 }}
               animate={{
                 opacity: 1,
@@ -120,9 +120,9 @@ function Techs({ isOpen }: { isOpen: boolean }) {
               <Tailwind height={size} width={size} />
               <MUI height={size} width={size} />
               <ChakraUI height={size} width={size} />
-              <AntDesign height={size} width={size} />
+              {/* <AntDesign height={size} width={size} /> */}
             </motion.div>
-            <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
+            {/* <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
               <p className={`${styles.heading}`}>Database</p>
             </div>
             <motion.div
@@ -138,7 +138,7 @@ function Techs({ isOpen }: { isOpen: boolean }) {
               }}
             >
               <Sqlite height={size} width={size} />
-            </motion.div>
+            </motion.div> */}
             <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
               <p className={`${styles.heading_reverse}`}>Platforms</p>
             </div>

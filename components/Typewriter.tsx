@@ -46,7 +46,7 @@ const Typewriter = ({ texts, writeSpeed = 250, eraseSpeed = 150 }: props) => {
   }, [subIndex, isDeleting, index, texts, writeSpeed, eraseSpeed]);
 
   return (
-    <div className="flex items-center text-[#263138]">
+    <div className="flex items-center ">
       {text}
       <span className={`${styles.typewriter_cursor}`}></span>
     </div>

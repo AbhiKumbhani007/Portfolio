@@ -1,6 +1,6 @@
 .html {
-  fill: var(--svg-html, #445964); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-html, #445964);
+  transition: all 0.3s ease-in-out;
 }
 
 .html:hover {
@@ -9,8 +9,8 @@
 }
 
 .css {
-  fill: var(--svg-color, #000000); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-color, #000000);
+  transition: all 0.3s ease-in-out;
 }
 
 .css:hover {
@@ -19,8 +19,8 @@
 }
 
 .js {
-  fill: var(--svg-js, #445964); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-js, #445964);
+  transition: all 0.3s ease-in-out;
 }
 
 .js:hover {
@@ -29,8 +29,8 @@
 }
 
 .ts {
-  fill: var(--svg-ts, #000000); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-ts, #000000);
+  transition: all 0.3s ease-in-out;
 }
 
 .ts:hover {
@@ -39,8 +39,8 @@
 }
 
 .react {
-  fill: var(--svg-react, #445964); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-react, #445964);
+  transition: all 0.3s ease-in-out;
 }
 
 .react:hover {
@@ -49,8 +49,8 @@
 }
 
 .electron {
-  fill: var(--svg-electron, #000000); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-electron, #000000);
+  transition: all 0.3s ease-in-out;
 }
 
 .electron:hover {
@@ -59,8 +59,8 @@
 }
 
 .redux {
-  fill: var(--svg-redux, #000000); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-redux, #000000);
+  transition: all 0.3s ease-in-out;
 }
 
 .redux:hover {
@@ -69,8 +69,8 @@
 }
 
 .next {
-  fill: var(--svg-next, #445964); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-next, #445964);
+  transition: all 0.3s ease-in-out;
 }
 
 .next:hover {
@@ -79,8 +79,8 @@
 }
 
 .tw {
-  fill: var(--svg-tw, #000000); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-tw, #000000);
+  transition: all 0.3s ease-in-out;
 }
 
 .tw:hover {
@@ -89,8 +89,8 @@
 }
 
 .mui {
-  fill: var(--svg-mui, #445964); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-mui, #445964);
+  transition: all 0.3s ease-in-out;
 }
 
 .mui:hover {
@@ -99,8 +99,8 @@
 }
 
 .cui {
-  fill: var(--svg-cui, #000000); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-cui, #000000);
+  transition: all 0.3s ease-in-out;
 }
 
 .cui:hover {
@@ -108,29 +108,9 @@
   fill: var(--svg-cui);
 }
 
-.ant {
-  fill: var(--svg-ant, #445964); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
-}
-
-.ant:hover {
-  --svg-ant: #e44d26;
-  fill: var(--svg-ant);
-}
-
-.sqlite {
-  fill: var(--svg-sqlite, #000000); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
-}
-
-.sqlite:hover {
-  --svg-sqlite: #e44d26;
-  fill: var(--svg-sqlite);
-}
-
 .git {
-  fill: var(--svg-git, #445964); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-git, #445964);
+  transition: all 0.3s ease-in-out;
 }
 
 .git:hover {
@@ -139,8 +119,8 @@
 }
 
 .vsc {
-  fill: var(--svg-vsc, #000000); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-vsc, #000000);
+  transition: all 0.3s ease-in-out;
 }
 
 .vsc:hover {
@@ -149,8 +129,8 @@
 }
 
 .jira {
-  fill: var(--svg-vsc, #445964); /* default color with fallback */
-  transition: all 0.3s ease-in-out; /* Apply transition here */
+  fill: var(--svg-vsc, #445964);
+  transition: all 0.3s ease-in-out;
 }
 
 .jira:hover {

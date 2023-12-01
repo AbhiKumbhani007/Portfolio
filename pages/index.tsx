@@ -10,7 +10,13 @@ import { useMemo } from "react";
 import { useLottie } from "lottie-react";
 import animation from "../constants/animations/home_illustration.json";
 import Image from "next/image";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
+import {
+  darkPrimary1,
+  darkPrimary2,
+  lightPrimary1,
+  lightPrimary2,
+} from "@/constants/color";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -19,6 +25,12 @@ const roboto = Roboto({
 
 export default function Home({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+
+  const primary1 = useColorModeValue(lightPrimary1, darkPrimary1);
+
+  const primary2 = useColorModeValue(lightPrimary2, darkPrimary1);
+
+  const textColor = useColorModeValue(lightPrimary1, "#c0c0c0");
 
   const height = useBreakpointValue({
     base: 350,
@@ -53,19 +65,19 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
       id: 1,
       alt: "github",
       href: "",
-      src: <Github height={30} width={30} />,
+      src: <Github height={30} width={30} fill={primary2} />,
     },
     {
       id: 2,
       alt: "linkedin",
       href: "",
-      src: <Linkedin />,
+      src: <Linkedin fill={primary2} />,
     },
     {
       id: 3,
       alt: "instagram",
       href: "",
-      src: <Instagram />,
+      src: <Instagram fill={primary2} />,
     },
   ];
 
@@ -84,7 +96,14 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
         >
           <div className=" flex flex-col pt-0 lg:pt-20 md:pt-0 justify-center items-center lg:items-start md:items-center sm:items-start gap-8 lg:gap-20 md:gap-8 w-full lg:w-[70%] row-start-2 sm:row-start-1 text-[#445964]">
             <div className="flex flex-col justify-center items-center lg:items-start md:items-start sm:items-start">
-              <p className={`text-md ${roboto.className}`}>Hello people,</p>
+              <p
+                className={`text-md ${roboto.className}`}
+                style={{
+                  color: primary1,
+                }}
+              >
+                Hello people,
+              </p>
               <h1
                 className={`flex items-center text-3xl lg:text-5xl font-extrabold text-black-600 leading-normal break-words ${roboto.className} text-center lg:text-left md:text-left sm:text-left gap-1.5 lg:gap-3.5 `}
               >
@@ -92,6 +111,9 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
               </h1>
               <h1
                 className={`flex items-center h-8 lg:h-14 text-3xl lg:text-5xl font-extrabold text-black-600 leading-normal break-words ${roboto.className} text-center lg:text-left md:text-left sm:text-left gap-1.5 lg:gap-3.5 `}
+                style={{
+                  color: primary2,
+                }}
               >
                 {" "}
                 <Typewriter
@@ -100,6 +122,9 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
               </h1>
               <p
                 className={`text-lg text-center font-medium pt-5 ${roboto.className}`}
+                style={{
+                  color: textColor,
+                }}
               >
                 Welcome to my portfolio website
               </p>
