@@ -21,6 +21,7 @@ import { MdWork } from "react-icons/md";
 import { WiSunrise, WiMoonrise } from "react-icons/wi";
 import { RiMenu3Fill, RiServiceFill } from "react-icons/ri";
 import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
+import AnimatedCursor from "react-animated-cursor";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -101,6 +102,27 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
       }`}
       style={{ backgroundColor: headerBg }}
     >
+      <AnimatedCursor
+        innerSize={10}
+        outerSize={10}
+        color={colorMode === "light" ? "68, 89, 100" : "255,255,255"}
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={5}
+        clickables={[
+          "a",
+          'input[type="text"]',
+          'input[type="email"]',
+          'input[type="number"]',
+          'input[type="submit"]',
+          'input[type="image"]',
+          "label[for]",
+          "select",
+          "textarea",
+          "button",
+          ".link",
+        ]}
+      />
       <nav className="max-w-screen-2xl px-4 sm:px-8 lg:px-16 mx-auto grid grid-cols-1 lg:grid-cols-3 py-1 sm:py-4">
         <div
           className="flex items-center justify-between lg:col-span-1"
