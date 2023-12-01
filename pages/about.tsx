@@ -92,17 +92,16 @@ export default function About({ isOpen }: { isOpen: boolean }) {
           className={`flex justify-center items-center ${roboto.className}`}
         >
           <div className=" flex flex-col justify-center items-center gap-6 w-full max-w-3xl">
-            <div className="rounded-full p-4  hover:shadow-2xl duration-1000 hover:bg-slate-300 ease-in-out">
+            <div className="w-[240px] h-[240px] rounded-full p-4 hover:shadow-2xl hover:bg-slate-300 duration-75  ease-in-out">
               <Image
-                src="/about_logo_2.png"
+                src="/about_logo_4.png"
                 width={200}
                 height={200}
                 alt=""
                 className="hover:-translate-y-1 hover:translate-x-1 duration-1000 ease-in-out"
               />
             </div>
-
-            <div className="flex gap-3 text-3xl lg:text-5xl font-bold tracking-wider">
+            <div className="flex gap-3 text-3xl lg:text-5xl font-bold tracking-wider pt-10">
               <p className="text-[#445964]">Abhishek</p>
               <p className="text-[#263138]">Kumbhani</p>
             </div>
@@ -171,7 +170,7 @@ export default function About({ isOpen }: { isOpen: boolean }) {
           </div>
         </motion.div>
       </ScrollAnimationWrapper>
-      <div className="h-16" />
+      {/* <div className="h-16" /> */}
     </div>
   );
 }
