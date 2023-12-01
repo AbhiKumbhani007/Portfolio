@@ -21,9 +21,17 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   const height = useBreakpointValue({
-    base: "auto",
+    base: 350,
     lg: 600,
-    md: "auto",
+    md: 450,
+    sm: 400,
+  });
+
+  const width = useBreakpointValue({
+    base: 600,
+    xl: 705,
+    lg: 550,
+    md: 600,
   });
 
   const router = useRouter();
@@ -35,7 +43,7 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
 
   const style = {
     height: height,
-    width: 705,
+    width: width,
   };
 
   const { View } = useLottie(options, style);
@@ -71,10 +79,10 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
     >
       <ScrollAnimationWrapper className="flex justify-center items-center">
         <motion.div
-          className="flex lg:flex-row flex-col-reverse justify-between gap-8 py-6 sm:py-16 w-full"
+          className="flex lg:flex-row flex-col-reverse justify-between gap-8 py-6 sm:py-0 w-full"
           variants={scrollAnimation}
         >
-          <div className=" flex flex-col justify-end items-center lg:items-start md:items-start sm:items-start gap-16 lg:gap-20 w-full lg:w-[70%] row-start-2 sm:row-start-1 text-[#445964]">
+          <div className=" flex flex-col pt-0 lg:pt-20 md:pt-0 justify-center items-center lg:items-start md:items-center sm:items-start gap-8 lg:gap-20 md:gap-8 w-full lg:w-[70%] row-start-2 sm:row-start-1 text-[#445964]">
             <div className="flex flex-col justify-center items-center lg:items-start md:items-start sm:items-start">
               <p className={`text-md ${roboto.className}`}>Hello people,</p>
               <h1
@@ -90,7 +98,9 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
                   texts={["Programmer", "Web Developer", "React Developer"]}
                 />
               </h1>
-              <p className={`text-lg font-medium pt-3 ${roboto.className}`}>
+              <p
+                className={`text-lg text-center font-medium pt-5 ${roboto.className}`}
+              >
                 Welcome to my portfolio website
               </p>
             </div>
@@ -108,21 +118,11 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
               ))}
             </div>
           </div>
-          <div className="flex w-full justify-end">
+          <div className="flex w-full justify-center xl:justify-end">
             <motion.div
               className="h-full w-full contents"
               variants={scrollAnimation}
-              style={{
-                width: 705,
-                height: 600,
-              }}
             >
-              {/* <Image
-                src="https://svgshare.com/i/10F5.svg"
-                width={705}
-                height={600}
-                alt="art"
-              /> */}
               {View}
             </motion.div>
           </div>
