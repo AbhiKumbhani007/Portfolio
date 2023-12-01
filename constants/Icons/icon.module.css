@@ -18,6 +18,16 @@
   fill: var(--svg-color);
 }
 
+.cssDark {
+  fill: var(--svg-color, #9ea2a4);
+  transition: all 0.3s ease-in-out;
+}
+
+.cssDark:hover {
+  --svg-color: #264de4; /* blue color on hover */
+  fill: var(--svg-color);
+}
+
 .js {
   fill: var(--svg-js, #445964);
   transition: all 0.3s ease-in-out;
@@ -34,6 +44,16 @@
 }
 
 .ts:hover {
+  --svg-ts: #007acc;
+  fill: var(--svg-ts);
+}
+
+.tsDark {
+  fill: var(--svg-ts, #9ea2a4);
+  transition: all 0.3s ease-in-out;
+}
+
+.tsDark:hover {
   --svg-ts: #007acc;
   fill: var(--svg-ts);
 }
@@ -58,12 +78,32 @@
   fill: var(--svg-electron);
 }
 
+.electronDark {
+  fill: var(--svg-electron, #9ea2a4);
+  transition: all 0.3s ease-in-out;
+}
+
+.electronDark:hover {
+  --svg-electron: #007acc;
+  fill: var(--svg-electron);
+}
+
 .redux {
   fill: var(--svg-redux, #000000);
   transition: all 0.3s ease-in-out;
 }
 
 .redux:hover {
+  --svg-redux: #764abc;
+  fill: var(--svg-redux);
+}
+
+.reduxDark {
+  fill: var(--svg-redux, #9ea2a4);
+  transition: all 0.3s ease-in-out;
+}
+
+.reduxDark:hover {
   --svg-redux: #764abc;
   fill: var(--svg-redux);
 }
@@ -88,6 +128,16 @@
   fill: var(--svg-tw);
 }
 
+.twDark {
+  fill: var(--svg-tw, #9ea2a4);
+  transition: all 0.3s ease-in-out;
+}
+
+.twDark:hover {
+  --svg-tw: #44a8b3;
+  fill: var(--svg-tw);
+}
+
 .mui {
   fill: var(--svg-mui, #445964);
   transition: all 0.3s ease-in-out;
@@ -108,6 +158,16 @@
   fill: var(--svg-cui);
 }
 
+.cuiDark {
+  fill: var(--svg-cui, #9ea2a4);
+  transition: all 0.3s ease-in-out;
+}
+
+.cuiDark:hover {
+  --svg-cui: #6acdcc;
+  fill: var(--svg-cui);
+}
+
 .git {
   fill: var(--svg-git, #445964);
   transition: all 0.3s ease-in-out;
@@ -124,6 +184,16 @@
 }
 
 .vsc:hover {
+  --svg-vsc: #1279b7;
+  fill: var(--svg-vsc);
+}
+
+.vscDark {
+  fill: var(--svg-vsc, #9ea2a4);
+  transition: all 0.3s ease-in-out;
+}
+
+.vscDark:hover {
   --svg-vsc: #1279b7;
   fill: var(--svg-vsc);
 }

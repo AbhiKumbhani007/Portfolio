@@ -23,10 +23,14 @@ import {
   lightPrimary2,
 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
+import {
+  useBreakpointValue,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -39,6 +43,8 @@ function Techs({ isOpen }: { isOpen: boolean }) {
   const primary1 = useColorModeValue(lightPrimary1, darkPrimary1);
 
   const primary2 = useColorModeValue(lightPrimary2, darkPrimary2);
+
+  const { colorMode } = useColorMode();
 
   const size = useBreakpointValue({
     base: 70,
