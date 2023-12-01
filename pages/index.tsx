@@ -58,19 +58,19 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
     {
       id: 1,
       alt: "github",
-      href: "",
+      href: "https://github.com/AbhiKumbhani007",
       src: <Github height={30} width={30} fill={primary2} />,
     },
     {
       id: 2,
       alt: "linkedin",
-      href: "",
+      href: "https://www.linkedin.com/in/abhishek-kumbhani/",
       src: <Linkedin fill={primary2} />,
     },
     {
       id: 3,
       alt: "instagram",
-      href: "",
+      href: "https://instagram.com/a_kumbhani07?igshid=OGQ5ZDc2ODk2ZA==",
       src: <Instagram fill={primary2} />,
     },
   ];
@@ -132,7 +132,14 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
             </ButtonPrimary>
             <div className="flex items-center gap-6 justify-center w-fit lg:w-[165px] xl:w-fit">
               {socialMedia.map((social) => (
-                <div key={social.id}>{social.src}</div>
+                <a
+                  key={social.id}
+                  href={social.href}
+                  target="_blank"
+                  className="cursor-pointer"
+                >
+                  {social.src}
+                </a>
               ))}
             </div>
           </div>
