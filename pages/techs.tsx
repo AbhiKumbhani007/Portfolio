@@ -1,7 +1,6 @@
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 
 import {
-  AntDesign,
   CSS,
   ChakraUI,
   ElectronJs,
@@ -13,17 +12,21 @@ import {
   NextJs,
   REACT,
   Redux,
-  Sqlite,
   Tailwind,
   TypeScript,
   VsCode,
 } from "@/constants/Icons/TechLogo";
+import {
+  darkPrimary1,
+  darkPrimary2,
+  lightPrimary1,
+  lightPrimary2,
+} from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import { useMemo } from "react";
-import styles from "../styles/tech.module.css";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -32,6 +35,10 @@ const roboto = Roboto({
 
 function Techs({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+
+  const primary1 = useColorModeValue(lightPrimary1, darkPrimary1);
+
+  const primary2 = useColorModeValue(lightPrimary2, darkPrimary2);
 
   const size = useBreakpointValue({
     base: 70,
@@ -68,7 +75,13 @@ function Techs({ isOpen }: { isOpen: boolean }) {
         >
           <div className=" flex flex-col justify-center items-center w-full max-w-3xl">
             <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider">
-              <p className={`${styles.heading}`}>Technologies</p>
+              <p
+                style={{
+                  color: primary1,
+                }}
+              >
+                Technologies
+              </p>
             </div>
             <motion.div
               className="grid lg:grid-cols-6 grid-cols-3 md:grid-cols-6 gap-8 lg:gap-x-36 lg:gap-y-20 pt-10"
@@ -82,16 +95,6 @@ function Techs({ isOpen }: { isOpen: boolean }) {
                 },
               }}
             >
-              {/* <Box
-                w={size}
-                h={size}
-                filter={"grayscale(1)"}
-                _hover={{
-                  filter: "grayscale(0)",
-                }}
-                transition={"all 0.3s ease-in-out"}
-              >
-              </Box> */}
               <HTML height={size} width={size} />
 
               <CSS height={size} width={size} />
@@ -101,7 +104,13 @@ function Techs({ isOpen }: { isOpen: boolean }) {
               <ElectronJs height={size} width={size} />
             </motion.div>
             <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
-              <p className={`${styles.heading_reverse}`}>Libraries</p>
+              <p
+                style={{
+                  color: primary2,
+                }}
+              >
+                Libraries
+              </p>
             </div>
             <motion.div
               className="grid lg:grid-cols-5 grid-cols-3 md:grid-cols-5 gap-8 lg:gap-x-36 lg:gap-y-20 pt-10"
@@ -120,27 +129,16 @@ function Techs({ isOpen }: { isOpen: boolean }) {
               <Tailwind height={size} width={size} />
               <MUI height={size} width={size} />
               <ChakraUI height={size} width={size} />
-              {/* <AntDesign height={size} width={size} /> */}
             </motion.div>
-            {/* <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
-              <p className={`${styles.heading}`}>Database</p>
-            </div>
-            <motion.div
-              className="grid lg:grid-cols-1 grid-cols-1 md:grid-cols-1 gap-8 lg:gap-x-36 lg:gap-y-20 pt-10 "
-              initial={{ opacity: 0, x: 100 }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: "spring",
-                  duration: 4,
-                },
-              }}
-            >
-              <Sqlite height={size} width={size} />
-            </motion.div> */}
+
             <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
-              <p className={`${styles.heading_reverse}`}>Platforms</p>
+              <p
+                style={{
+                  color: primary1,
+                }}
+              >
+                Platforms
+              </p>
             </div>
             <motion.div
               className="grid lg:grid-cols-3 grid-cols-3 md:grid-cols-3 gap-8 lg:gap-x-20 lg:gap-y-20 pt-10 justify-center"

@@ -2,21 +2,15 @@ import ButtonPrimary from "@/components/Misc/ButtonPrimary";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 import Typewriter from "@/components/Typewriter";
 import { Github, Instagram, Linkedin } from "@/constants/Icons/SocialLogo";
+import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
+import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useLottie } from "lottie-react";
 import { Roboto } from "next/font/google";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import { useLottie } from "lottie-react";
 import animation from "../constants/animations/home_illustration.json";
-import Image from "next/image";
-import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
-import {
-  darkPrimary1,
-  darkPrimary2,
-  lightPrimary1,
-  lightPrimary2,
-} from "@/constants/color";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -115,7 +109,6 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
                   color: primary2,
                 }}
               >
-                {" "}
                 <Typewriter
                   texts={["Programmer", "Web Developer", "React Developer"]}
                 />
