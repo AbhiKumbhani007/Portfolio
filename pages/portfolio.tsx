@@ -1,22 +1,64 @@
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
+import {
+  darkPrimary1,
+  darkPrimary2,
+  lightPrimary1,
+  lightPrimary2,
+} from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import { motion } from "framer-motion";
+import {
+  Box,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Text,
+  useColorMode,
+  useColorModeValue,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { color, motion } from "framer-motion";
 import { Roboto } from "next/font/google";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
 });
 
-function portfolio({ isOpen }: { isOpen: boolean }) {
+function portfolio({ isOpen: open }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+
+  const primary1 = useColorModeValue(lightPrimary1, darkPrimary1);
+
+  const primary2 = useColorModeValue(lightPrimary2, darkPrimary1);
+
+  const detailsDesc = useColorModeValue(lightPrimary1, "#FFFFFF");
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [hoveredDiv, setHoveredDiv] = useState<null | number>(null);
+
+  const [clickedDiv, setClickedDiv] = useState<null | number>(null);
+
+  const handleMouseEnter = (divId: number) => setHoveredDiv(divId);
+
+  const { colorMode } = useColorMode();
+
+  const handleDivClick = (divId: number) => {
+    setClickedDiv(divId);
+    onOpen();
+  };
+
+  const handleMouseLeave = () => setHoveredDiv(null);
 
   return (
     <div
-      className={`max-w-screen-2xl mt-24 xl:mt-[8%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-x-hidden`}
+      className={`max-w-screen-2xl mt-12 xl:mt-[8%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-x-hidden`}
       style={{
-        filter: isOpen ? "blur(2px)" : "none",
+        filter: open ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
       }}
     >
@@ -41,14 +83,24 @@ function portfolio({ isOpen }: { isOpen: boolean }) {
         >
           <div className="flex flex-col justify-center items-start lg:items-start gap-6 lg:gap-16 w-full max-w-3xl">
             <div className="flex flex-col justify-start items-start">
-              <h1 className="text-4xl lg:text-5xl font-extrabold text-[#263138]">
+              <h1
+                className="text-4xl lg:text-5xl font-extrabold"
+                style={{
+                  color: primary2,
+                }}
+              >
                 My
               </h1>
               <div className="flex flex-col lg:flex-row justify-center items-start lg:items-end lg:gap-20 text-[#445964] max-w-2xl">
                 <h1 className="text-4xl lg:text-5xl font-extrabold ">
                   Portfolio
                 </h1>
-                <h4 className="text-lg lg:text-xl font-semibold">
+                <h4
+                  className="text-lg lg:text-xl font-semibold"
+                  style={{
+                    color: primary1,
+                  }}
+                >
                   These are some of the works and projects I have already
                   carried out
                 </h4>
@@ -61,32 +113,69 @@ function portfolio({ isOpen }: { isOpen: boolean }) {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div
-                  className={`flex justify-center items-center bg-[#263138] text-[#DFDFDF] p-6 rounded-xl lg:rounded-3xl shadow-md row-span-3 lg:row-span-6 w-64 lg:w-80 xl:w-96 h-40 lg:h-60 select-none`}
+                  onClick={() => handleDivClick(1)}
+                  onMouseEnter={() => handleMouseEnter(1)}
+                  onMouseLeave={handleMouseLeave}
+                  className={`flex relative justify-center items-center rounded-2xl shadow-md row-span-3 lg:row-span-6 w-64 lg:w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
                 >
-                  Content 1
+                  <div
+                    style={{
+                      backgroundImage: "url('/fuota-login.png')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      filter: hoveredDiv === 1 ? "brightness(20%)" : "none",
+                      transition: "filter 0.5s ease-in-out",
+                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
+                      borderRadius: "16px",
+                    }}
+                  ></div>
+                  {hoveredDiv === 1 ? <OverlayComponent divId={1} /> : <></>}
                 </div>
                 <div
-                  className={`flex justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-xl lg:rounded-2xl shadow-md row-span-3 w-64 lg:w-80 xl:w-96 h-40 select-none`}
+                  onClick={() => handleDivClick(2)}
+                  onMouseEnter={() => handleMouseEnter(2)}
+                  onMouseLeave={handleMouseLeave}
+                  className={`flex relative justify-center items-center p-6 rounded-2xl shadow-md row-span-3 w-64 lg:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
-                  Content 2
+                  <div
+                    style={{
+                      backgroundImage: "url('/bpt-dashboard.png')",
+                      backgroundSize: "100%",
+                      backgroundPositionY: "top",
+                      backgroundPositionX: "center",
+                      filter: hoveredDiv === 2 ? "brightness(20%)" : "none",
+                      transition: "filter 0.5s ease-in-out",
+                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
+                      borderRadius: "16px",
+                    }}
+                  ></div>
+                  {hoveredDiv === 2 ? <OverlayComponent divId={2} /> : <></>}
                 </div>
                 <div
-                  className={`flex justify-center items-center bg-[#DFDFDF] p-6 rounded-xl shadow-md row-span-3 lg:row-span-6 w-64 lg:w-80 xl:w-96 h-40 lg:h-60 select-none`}
+                  onClick={onOpen}
+                  className={`flex justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-64 lg:w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
                 >
                   Content 3
                 </div>
                 <div
-                  className={`flex justify-center items-center  bg-[#263138] text-[#DFDFDF] p-6 rounded-xl shadow-md row-span-3 lg:row-span-6 w-64 lg:w-80 xl:w-96 h-40 lg:h-60 select-none`}
+                  onClick={onOpen}
+                  className={`flex justify-center items-center  bg-[#263138] text-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-64 lg:w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
                 >
                   Content 4
                 </div>
                 <div
-                  className={`flex justify-center items-center bg-[#DFDFDF] p-6 rounded-xl lg:rounded-3xl shadow-md row-span-3 w-64 lg:w-80 xl:w-96 h-40 select-none`}
+                  onClick={onOpen}
+                  className={`flex justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-64 lg:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   Content 5
                 </div>
                 <div
-                  className={`flex justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-xl lg:rounded-2xl shadow-md row-span-3 w-64 lg:w-80 xl:w-96 h-40 select-none`}
+                  onClick={onOpen}
+                  className={`flex justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-2xl shadow-md row-span-3 w-64 lg:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   Content 6
                 </div>
@@ -95,9 +184,114 @@ function portfolio({ isOpen }: { isOpen: boolean }) {
           </div>
         </motion.div>
       </ScrollAnimationWrapper>
+      <Drawer onClose={onClose} isOpen={isOpen} placement="bottom">
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader className="flex flex-col lg:flex-row w-full items-start lg:items-end gap-0 lg:gap-2">
+            <Text
+              className="text-2xl"
+              style={{
+                color: colorMode === "light" ? primary1 : "#FFFFFF",
+              }}
+            >
+              {clickedDiv && detailedContent[clickedDiv - 1].title}
+            </Text>
+            <Text
+              className="text-base font-medium"
+              style={{
+                color: primary2,
+              }}
+            >
+              {clickedDiv && detailedContent[clickedDiv - 1].tagLine}
+            </Text>
+          </DrawerHeader>
+          <DrawerBody maxH={"90vh"} overflowY={"auto"}>
+            {clickedDiv &&
+              detailedContent[clickedDiv - 1].desc.map((item, index) => (
+                <Text
+                  key={index}
+                  color={detailsDesc}
+                  className={`text-sm ${
+                    colorMode === "light" && "font-semibold"
+                  } lg:text-md opacity-70 ${
+                    colorMode === "dark" ? "tracking-wider" : "tracking-wide"
+                  }   ${roboto.className} pt-4`}
+                >
+                  {item}
+                </Text>
+              ))}
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
       <div className="h-16" />
     </div>
   );
 }
 
 export default portfolio;
+
+const OverlayComponent = ({ divId }: { divId: number }) => {
+  const contentMap = [
+    {
+      id: 1,
+      title: "Fuota.io",
+      desc: "A portal for Managing Firmware Updates for LoRaWAN IoT Devices",
+    },
+    {
+      id: 2,
+      title: "BPT",
+      desc: "An Offline desktop app, to generate secure & upload ready binary files",
+    },
+    { id: 3, title: "Fuota.io", desc: "" },
+    { id: 4, title: "Fuota.io", desc: "" },
+    { id: 5, title: "Fuota.io", desc: "" },
+    { id: 6, title: "Fuota.io", desc: "" },
+  ];
+
+  return (
+    <Box
+      className={`overlay flex flex-col justify-center items-center w-full gap-2 relative ${roboto.className}`}
+    >
+      <Text className="text-white font-bold text-xl lg:text-2xl tracking-widest">
+        {contentMap[divId - 1].title}
+      </Text>
+      <Text className="text-gray-200 font-medium text-md tracking-widest text-center w-3/4">
+        {contentMap[divId - 1].desc}
+      </Text>
+    </Box>
+  );
+};
+
+const detailedContent = [
+  {
+    id: 1,
+    title: "Fuota.io",
+    tagLine: "Firmware Update Over The Air",
+    desc: [
+      "FUOTA.IO is a cloud service for managing your LoRaWAN devices, built for remote firmware update as per LoRaWAN Alliance’s FUOTA Specifications.",
+      "FUOTA.IO integrates with your existing LoRaWAN network server and starts working in the most secure manner without any development.",
+      "Doing FUOTA on your entire batch of devices is just 3 simple steps: Enter the FUOTA session details, select the number of devices to be updated, and confirm.",
+      "FUOTA.IO provides a summary of progress and success/failure rate during FUOTA sessions and allows you to export the report of each session.",
+      "FUOTA.IO supports Delta Binary update to reduce firmware update size, and integrates with your software IDE to automatically generate signed and encrypted Delta builds.",
+      "FUOTA.IO offers features beyond FUOTA process, like product management, generating unique credentials in factory settings, and managing LoRaWAN devices across multiple LNS environments.",
+      "With FUOTA.IO, ensure the longevity and security of your IoT devices with efficient, reliable, and secure firmware updates.",
+    ],
+  },
+  {
+    id: 2,
+    title: "BPT",
+    tagLine: "Binary Preparation Tool",
+    desc: [
+      "BPT is a cutting-edge desktop application for enhancing the security of binary files for IoT devices.",
+      "Initiate security tasks by creating organized projects and release channels, streamlining the process.",
+      "Easily configure critical security aspects like encryption and integrity checks with a user-friendly interface.",
+      "Protect binary files with advanced encryption, ensuring confidentiality during transmission.",
+      "Implement integrity checks to prevent tampering and ensure the authenticity of your binary files.",
+      "Optimize updates with delta generation, enhancing the efficiency of data transmission to IoT devices.",
+      "Secure your files with digital signatures for heightened authentication and trust.",
+      "Choose between direct server storage or local machine storage for your secured binary files.",
+      "Transform unsecured firmware into secure versions with applied configured settings, ready for safe IoT deployment.",
+    ],
+  },
+];
