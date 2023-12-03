@@ -21,7 +21,7 @@ import {
 } from "@chakra-ui/react";
 import { color, motion } from "framer-motion";
 import { Roboto } from "next/font/google";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -46,6 +46,16 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
   const handleMouseEnter = (divId: number) => setHoveredDiv(divId);
 
   const { colorMode } = useColorMode();
+
+  const [deviceType, setDeviceType] = useState(0);
+
+  useEffect(() => {
+    fetch("/api/device")
+      .then((response) => response.json())
+      .then((data) => {
+        setDeviceType(data.deviceType);
+      });
+  }, []);
 
   const handleDivClick = (divId: number) => {
     setClickedDiv(divId);
@@ -116,7 +126,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                   onClick={() => handleDivClick(1)}
                   onMouseEnter={() => handleMouseEnter(1)}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex relative justify-center items-center rounded-2xl shadow-md row-span-3 lg:row-span-6 w-64 lg:w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
+                  className={`flex relative justify-center items-center rounded-2xl shadow-md row-span-3 lg:row-span-6 w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
@@ -131,13 +141,17 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                       borderRadius: "16px",
                     }}
                   ></div>
-                  {hoveredDiv === 1 ? <OverlayComponent divId={1} /> : <></>}
+                  {deviceType && hoveredDiv === 1 ? (
+                    <OverlayComponent divId={1} />
+                  ) : (
+                    <></>
+                  )}
                 </div>
                 <div
                   onClick={() => handleDivClick(2)}
                   onMouseEnter={() => handleMouseEnter(2)}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex relative justify-center items-center p-6 rounded-2xl shadow-md row-span-3 w-64 lg:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
+                  className={`flex relative justify-center items-center p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
@@ -153,29 +167,52 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                       borderRadius: "16px",
                     }}
                   ></div>
-                  {hoveredDiv === 2 ? <OverlayComponent divId={2} /> : <></>}
+                  {deviceType && hoveredDiv === 2 ? (
+                    <OverlayComponent divId={2} />
+                  ) : (
+                    <></>
+                  )}
                 </div>
                 <div
-                  onClick={onOpen}
-                  className={`flex justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-64 lg:w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
+                  onClick={() => handleDivClick(3)}
+                  onMouseEnter={() => handleMouseEnter(3)}
+                  onMouseLeave={handleMouseLeave}
+                  className={`flex relative justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
                 >
-                  Content 3
+                  <div
+                    style={{
+                      backgroundImage: "url('/helperplace.jpg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      filter: hoveredDiv === 3 ? "brightness(20%)" : "none",
+                      transition: "filter 0.5s ease-in-out",
+                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
+                      borderRadius: "14px",
+                    }}
+                  ></div>
+                  {deviceType && hoveredDiv === 3 ? (
+                    <OverlayComponent divId={3} />
+                  ) : (
+                    <></>
+                  )}
                 </div>
                 <div
                   onClick={onOpen}
-                  className={`flex justify-center items-center  bg-[#263138] text-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-64 lg:w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
+                  className={`flex justify-center items-center  bg-[#263138] text-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
                 >
                   Content 4
                 </div>
                 <div
                   onClick={onOpen}
-                  className={`flex justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-64 lg:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
+                  className={`flex justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   Content 5
                 </div>
                 <div
                   onClick={onOpen}
-                  className={`flex justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-2xl shadow-md row-span-3 w-64 lg:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
+                  className={`flex justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   Content 6
                 </div>
@@ -186,8 +223,8 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
       </ScrollAnimationWrapper>
       <Drawer onClose={onClose} isOpen={isOpen} placement="bottom">
         <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
+        <DrawerContent borderTopRadius={"16px"}>
+          <DrawerCloseButton autoFocus={false} />
           <DrawerHeader className="flex flex-col lg:flex-row w-full items-start lg:items-end gap-0 lg:gap-2">
             <Text
               className="text-2xl"
@@ -221,6 +258,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                   {item}
                 </Text>
               ))}
+            <Box className="h-6" />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
@@ -243,7 +281,11 @@ const OverlayComponent = ({ divId }: { divId: number }) => {
       title: "BPT",
       desc: "An Offline desktop app, to generate secure & upload ready binary files",
     },
-    { id: 3, title: "Fuota.io", desc: "" },
+    {
+      id: 3,
+      title: "HelperPlace",
+      desc: "HelperPlace connects employers and domestic helpers in just a few clicks.",
+    },
     { id: 4, title: "Fuota.io", desc: "" },
     { id: 5, title: "Fuota.io", desc: "" },
     { id: 6, title: "Fuota.io", desc: "" },
@@ -292,6 +334,22 @@ const detailedContent = [
       "Secure your files with digital signatures for heightened authentication and trust.",
       "Choose between direct server storage or local machine storage for your secured binary files.",
       "Transform unsecured firmware into secure versions with applied configured settings, ready for safe IoT deployment.",
+    ],
+  },
+  {
+    id: 3,
+    title: "HelperPlace",
+    tagLine:
+      "HelperPlace connects employers and domestic helpers in Hong Kong, Macau Singapore, United Arab Emirates & Saudi Arabia, in just a few clicks.",
+    desc: [
+      "Contributed significantly to the HelperPlace project, a leading Hong Kong and Singapore platform",
+      "Aimed to enhance the mobile user experience for the platform.",
+      "Converted the job details page into a mobile-friendly format using Google AMP.",
+      "Achieved notable reduction in loading times for users with low-end devices.",
+      "Successfully demonstrated the new feature's performance, leading to its approval and further development.",
+      "Currently mentoring an intern to extend Google AMP across all features of HelperPlace.",
+      "Ensured uniform and efficient user experience across HelperPlace.",
+      "Enhanced overall user satisfaction and platform usability, adhering to HelperPlace's commitment to quality service.",
     ],
   },
 ];
