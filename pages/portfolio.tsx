@@ -249,7 +249,10 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
       </ScrollAnimationWrapper>
       <Drawer onClose={onClose} isOpen={isOpen} placement="bottom">
         <DrawerOverlay />
-        <DrawerContent borderTopRadius={"16px"} h={"50%"}>
+        <DrawerContent borderTopRadius={"16px"} h={{
+          base: "calc(100vh - 56px)",
+          lg: "50%",
+        }}>
           <DrawerCloseButton autoFocus={false} />
 
           <DrawerHeader>
@@ -274,7 +277,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                         );
                       }}
                     >
-                      <MdOutlineLink size={20} />
+                      <MdOutlineLink size={28} />
                     </IconButton>
                   </Tooltip>
                 )}
