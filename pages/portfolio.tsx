@@ -27,6 +27,7 @@ import { useEffect, useMemo, useState } from "react";
 import { MdOutlineLink } from "react-icons/md";
 import { TbPoint } from "react-icons/tb";
 import { FiHexagon } from "react-icons/fi";
+import Particles from "@/components/Misc/ParticleComp";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -77,6 +78,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
         transition: "filter 0.3s ease-in-out",
       }}
     >
+      <Particles />
       <ScrollAnimationWrapper
         className={`flex justify-start items-center ${roboto.className}`}
       >

@@ -1,4 +1,5 @@
-import { CloseIcon, Icon } from "@chakra-ui/icons";
+import { darkPrimary1, lightPrimary1 } from "@/constants/color";
+import { CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
   Flex,
@@ -18,10 +19,8 @@ import { GoHomeFill } from "react-icons/go";
 import { GrContact } from "react-icons/gr";
 import { HiDocumentDuplicate } from "react-icons/hi2";
 import { MdWork } from "react-icons/md";
-import { WiSunrise, WiMoonrise } from "react-icons/wi";
 import { RiMenu3Fill, RiServiceFill } from "react-icons/ri";
-import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
-import AnimatedCursor from "react-animated-cursor";
+import { WiMoonrise, WiSunrise } from "react-icons/wi";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -137,7 +136,7 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
       ) : (
         <></>
       )} */}
-      <nav className="max-w-screen-2xl px-4 sm:px-8 lg:px-16 mx-auto grid grid-cols-1 lg:grid-cols-3 py-1 sm:py-4">
+      <nav className="max-w-screen-2xl px-4 sm:px-8 lg:px-16 mx-auto grid grid-cols-1 lg:grid-cols-3">
         <div
           className="flex items-center justify-between lg:col-span-1"
           style={{
@@ -295,7 +294,7 @@ const Drawer = ({ isOpen, children }: any) => {
 
   return (
     <div
-      className={`fixed top-0 right-0 w-56 h-full  shadow-md transform ${
+      className={`fixed top-0 right-0 w-56 h-full shadow-md transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
       } transition-transform duration-300 ease-in-out`}
       style={{

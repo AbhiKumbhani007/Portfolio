@@ -11,6 +11,7 @@ import { Roboto } from "next/font/google";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 import animation from "../constants/animations/home_illustration.json";
+import Particles from "@/components/Misc/ParticleComp";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -83,6 +84,7 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
         transition: "filter 0.3s ease-in-out",
       }}
     >
+      <Particles />
       <ScrollAnimationWrapper className="flex justify-center items-center">
         <motion.div
           className="flex lg:flex-row flex-col-reverse justify-between gap-8 py-6 sm:py-0 w-full"

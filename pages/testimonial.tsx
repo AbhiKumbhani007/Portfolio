@@ -1,3 +1,4 @@
+import Particles from "@/components/Misc/ParticleComp";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 import { DoubleQuotes } from "@/constants/Icons/Icons";
 import getScrollAnimation from "@/utils/getScrollAnimation";
@@ -19,7 +20,7 @@ function Testimonial({ isOpen }: { isOpen: boolean }) {
         filter: isOpen ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
       }}
-    >
+    ><Particles />
       <ScrollAnimationWrapper
         className={`flex justify-center w-full items-center ${roboto.className}`}
       >

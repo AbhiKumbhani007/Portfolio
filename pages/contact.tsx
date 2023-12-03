@@ -1,3 +1,4 @@
+import Particles from "@/components/Misc/ParticleComp";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import {
@@ -25,7 +26,7 @@ function Contact({ isOpen }: { isOpen: boolean }) {
         filter: isOpen ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
       }}
-    >
+    ><Particles />
       <ScrollAnimationWrapper
         className={`flex justify-center items-center ${roboto.className}`}
       >

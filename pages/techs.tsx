@@ -1,3 +1,4 @@
+import Particles from "@/components/Misc/ParticleComp";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 
 import {
@@ -30,7 +31,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ function Techs({ isOpen }: { isOpen: boolean }) {
         transition: "filter 0.3s ease-in-out",
       }}
     >
+      <Particles />
       <ScrollAnimationWrapper
         className={`flex justify-center items-center ${roboto.className}`}
       >
