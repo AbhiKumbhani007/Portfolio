@@ -14,7 +14,9 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  IconButton,
   Text,
+  Tooltip,
   useColorMode,
   useColorModeValue,
   useDisclosure,
@@ -22,6 +24,7 @@ import {
 import { color, motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import { useEffect, useMemo, useState } from "react";
+import { MdOutlineLink } from "react-icons/md";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -151,7 +154,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                   onClick={() => handleDivClick(2)}
                   onMouseEnter={() => handleMouseEnter(2)}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex relative justify-center items-center p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
+                  className={`flex relative justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
@@ -199,10 +202,29 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                   )}
                 </div>
                 <div
-                  onClick={onOpen}
-                  className={`flex justify-center items-center  bg-[#263138] text-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
+                  onClick={() => handleDivClick(4)}
+                  onMouseEnter={() => handleMouseEnter(4)}
+                  onMouseLeave={handleMouseLeave}
+                  className={`flex relative justify-center items-center  bg-[#263138] text-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
                 >
-                  Content 4
+                  <div
+                    style={{
+                      backgroundImage: "url('/cn-login.png')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      filter: hoveredDiv === 4 ? "brightness(20%)" : "none",
+                      transition: "filter 0.5s ease-in-out",
+                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
+                      borderRadius: "14px",
+                    }}
+                  ></div>
+                  {deviceType && hoveredDiv === 4 ? (
+                    <OverlayComponent divId={4} />
+                  ) : (
+                    <></>
+                  )}
                 </div>
                 <div
                   onClick={onOpen}
@@ -225,24 +247,45 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
         <DrawerOverlay />
         <DrawerContent borderTopRadius={"16px"}>
           <DrawerCloseButton autoFocus={false} />
-          <DrawerHeader className="flex flex-col lg:flex-row w-full items-start lg:items-end gap-0 lg:gap-2">
-            <Text
-              className="text-2xl"
-              style={{
-                color: colorMode === "light" ? primary1 : "#FFFFFF",
-              }}
-            >
-              {clickedDiv && detailedContent[clickedDiv - 1].title}
-            </Text>
-            <Text
-              className="text-base font-medium"
-              style={{
-                color: primary2,
-              }}
-            >
-              {clickedDiv && detailedContent[clickedDiv - 1].tagLine}
-            </Text>
+
+          <DrawerHeader>
+            <Box className="flex w-full gap-5">
+              {clickedDiv && detailedContent[clickedDiv - 1].url && (
+                <Tooltip label="Visit the URL">
+                  <IconButton
+                    aria-label="link"
+                    onClick={() => {
+                      window.open(
+                        detailedContent[clickedDiv - 1].url,
+                        "_blank"
+                      );
+                    }}
+                  >
+                    <MdOutlineLink />
+                  </IconButton>
+                </Tooltip>
+              )}
+              <Box className="flex flex-col lg:flex-row w-full items-start lg:items-end gap-0 lg:gap-2">
+                <Text
+                  className={`text-2xl ${roboto.className}`}
+                  style={{
+                    color: colorMode === "light" ? primary1 : "#FFFFFF",
+                  }}
+                >
+                  {clickedDiv && detailedContent[clickedDiv - 1].title}
+                </Text>
+                <Text
+                  className={`text-base font-medium ${roboto.className}`}
+                  style={{
+                    color: primary2,
+                  }}
+                >
+                  {clickedDiv && detailedContent[clickedDiv - 1].tagLine}
+                </Text>
+              </Box>
+            </Box>
           </DrawerHeader>
+
           <DrawerBody maxH={"90vh"} overflowY={"auto"}>
             {clickedDiv &&
               detailedContent[clickedDiv - 1].desc.map((item, index) => (
@@ -286,7 +329,11 @@ const OverlayComponent = ({ divId }: { divId: number }) => {
       title: "HelperPlace",
       desc: "HelperPlace connects employers and domestic helpers in just a few clicks.",
     },
-    { id: 4, title: "Fuota.io", desc: "" },
+    {
+      id: 4,
+      title: "Cloud Nation",
+      desc: "An easy solution to deploy your web app on the cloud with just a few clicks",
+    },
     { id: 5, title: "Fuota.io", desc: "" },
     { id: 6, title: "Fuota.io", desc: "" },
   ];
@@ -319,6 +366,7 @@ const detailedContent = [
       "FUOTA.IO offers features beyond FUOTA process, like product management, generating unique credentials in factory settings, and managing LoRaWAN devices across multiple LNS environments.",
       "With FUOTA.IO, ensure the longevity and security of your IoT devices with efficient, reliable, and secure firmware updates.",
     ],
+    url: "https://fuota.io/",
   },
   {
     id: 2,
@@ -335,6 +383,7 @@ const detailedContent = [
       "Choose between direct server storage or local machine storage for your secured binary files.",
       "Transform unsecured firmware into secure versions with applied configured settings, ready for safe IoT deployment.",
     ],
+    url: "",
   },
   {
     id: 3,
@@ -351,5 +400,23 @@ const detailedContent = [
       "Ensured uniform and efficient user experience across HelperPlace.",
       "Enhanced overall user satisfaction and platform usability, adhering to HelperPlace's commitment to quality service.",
     ],
+    url: "https://www.helperplace.com/",
+  },
+  {
+    id: 4,
+    title: "Cloud Nation",
+    tagLine:
+      "Cloud Nation is an easy solution to deploy your web app on the cloud with just a few clicks",
+    desc: [
+      "Spearheaded the front-end development of Cloud Nation, ensuring a smooth and intuitive user experience with an emphasis on functionality and ease of use.",
+      "Crafted a responsive design for Cloud Nation, adaptable to all device sizes, from smartphones to large desktop screens.",
+      "Implemented a 'few-click deployment' feature, streamlining the process for users to launch and manage their web projects quickly and efficiently.",
+      "Developed an informative overview dashboard for Cloud Nation, providing users with comprehensive insights into resources, analytics, build history, and live logs.",
+      "Focused on creating a seamless user interface that combines efficiency with a visually appealing design, tailored to modern web standards.",
+      "Played a key role in ensuring Cloud Nation's front-end was scalable, maintainable, and responsive, meeting the needs of a diverse user base.",
+      "Received accolades for the user-friendly design of Cloud Nation, especially for its straightforward navigation and robust feature set.",
+      "Prioritized the integration of advanced features like real-time analytics and live logs to offer users a comprehensive view of their web activities.",
+    ],
+    url: "https://cloudnation-frontend.vercel.app/",
   },
 ];

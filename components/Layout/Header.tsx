@@ -112,7 +112,7 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
       }`}
       style={{ backgroundColor: headerBg }}
     >
-      {deviceType ? (
+      {/* {deviceType ? (
         <AnimatedCursor
           innerSize={10}
           outerSize={10}
@@ -136,7 +136,7 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
         />
       ) : (
         <></>
-      )}
+      )} */}
       <nav className="max-w-screen-2xl px-4 sm:px-8 lg:px-16 mx-auto grid grid-cols-1 lg:grid-cols-3 py-1 sm:py-4">
         <div
           className="flex items-center justify-between lg:col-span-1"
