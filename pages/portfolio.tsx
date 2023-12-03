@@ -25,6 +25,8 @@ import { color, motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import { useEffect, useMemo, useState } from "react";
 import { MdOutlineLink } from "react-icons/md";
+import { TbPoint } from "react-icons/tb";
+import { FiHexagon } from "react-icons/fi";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -245,12 +247,12 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
       </ScrollAnimationWrapper>
       <Drawer onClose={onClose} isOpen={isOpen} placement="bottom">
         <DrawerOverlay />
-        <DrawerContent borderTopRadius={"16px"}>
+        <DrawerContent borderTopRadius={"16px"} h={"50%"}>
           <DrawerCloseButton autoFocus={false} />
 
           <DrawerHeader>
             <Box className="flex flex-col w-full gap-2">
-              <Box className="flex gap-3 items-center">
+              <Box className="flex gap-3 items-start lg:items-center">
                 <Text
                   className={`text-2xl ${roboto.className}`}
                   style={{
@@ -270,7 +272,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                         );
                       }}
                     >
-                      <MdOutlineLink />
+                      <MdOutlineLink size={20} />
                     </IconButton>
                   </Tooltip>
                 )}
@@ -289,17 +291,22 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
           <DrawerBody maxH={"90vh"} overflowY={"auto"}>
             {clickedDiv &&
               detailedContent[clickedDiv - 1].desc.map((item, index) => (
-                <Text
-                  key={index}
-                  color={detailsDesc}
-                  className={`text-sm ${
-                    colorMode === "light" && "font-semibold"
-                  } lg:text-md opacity-70 ${
-                    colorMode === "dark" ? "tracking-wider" : "tracking-wide"
-                  }   ${roboto.className} pt-4`}
-                >
-                  {item}
-                </Text>
+                <Box className="flex w-full items-center gap-2 pt-4">
+                  <FiHexagon
+                    color={colorMode === "light" ? lightPrimary2 : "#FFFFFF"}
+                  />
+                  <Text
+                    key={index}
+                    color={detailsDesc}
+                    className={`text-sm flex items-center ${
+                      colorMode === "light" && "font-semibold"
+                    } lg:text-md opacity-90 ${
+                      colorMode === "dark" ? "tracking-wider" : "tracking-wide"
+                    }   ${roboto.className}`}
+                  >
+                    {item}
+                  </Text>
+                </Box>
               ))}
             <Box className="h-6" />
           </DrawerBody>
