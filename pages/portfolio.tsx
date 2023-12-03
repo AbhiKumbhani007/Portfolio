@@ -249,23 +249,8 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
           <DrawerCloseButton autoFocus={false} />
 
           <DrawerHeader>
-            <Box className="flex w-full gap-5">
-              {clickedDiv && detailedContent[clickedDiv - 1].url && (
-                <Tooltip label="Visit the URL">
-                  <IconButton
-                    aria-label="link"
-                    onClick={() => {
-                      window.open(
-                        detailedContent[clickedDiv - 1].url,
-                        "_blank"
-                      );
-                    }}
-                  >
-                    <MdOutlineLink />
-                  </IconButton>
-                </Tooltip>
-              )}
-              <Box className="flex flex-col lg:flex-row w-full items-start lg:items-end gap-0 lg:gap-2">
+            <Box className="flex flex-col w-full gap-2">
+              <Box className="flex gap-3 items-center">
                 <Text
                   className={`text-2xl ${roboto.className}`}
                   style={{
@@ -274,15 +259,30 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                 >
                   {clickedDiv && detailedContent[clickedDiv - 1].title}
                 </Text>
-                <Text
-                  className={`text-base font-medium ${roboto.className}`}
-                  style={{
-                    color: primary2,
-                  }}
-                >
-                  {clickedDiv && detailedContent[clickedDiv - 1].tagLine}
-                </Text>
+                {clickedDiv && detailedContent[clickedDiv - 1].url && (
+                  <Tooltip label="Visit the URL">
+                    <IconButton
+                      aria-label="link"
+                      onClick={() => {
+                        window.open(
+                          detailedContent[clickedDiv - 1].url,
+                          "_blank"
+                        );
+                      }}
+                    >
+                      <MdOutlineLink />
+                    </IconButton>
+                  </Tooltip>
+                )}
               </Box>
+              <Text
+                className={`text-base font-medium ${roboto.className}`}
+                style={{
+                  color: primary2,
+                }}
+              >
+                {clickedDiv && detailedContent[clickedDiv - 1].tagLine}
+              </Text>
             </Box>
           </DrawerHeader>
 
