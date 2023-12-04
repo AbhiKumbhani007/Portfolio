@@ -148,11 +148,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                       borderRadius: "16px",
                     }}
                   ></div>
-                  {deviceType && hoveredDiv === 1 ? (
-                    <OverlayComponent divId={1} />
-                  ) : (
-                    <></>
-                  )}
+                  {hoveredDiv === 1 ? <OverlayComponent divId={1} /> : <></>}
                 </div>
                 <div
                   onClick={() => handleDivClick(2)}
@@ -174,11 +170,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                       borderRadius: "16px",
                     }}
                   ></div>
-                  {deviceType && hoveredDiv === 2 ? (
-                    <OverlayComponent divId={2} />
-                  ) : (
-                    <></>
-                  )}
+                  {hoveredDiv === 2 ? <OverlayComponent divId={2} /> : <></>}
                 </div>
                 <div
                   onClick={() => handleDivClick(3)}
@@ -199,11 +191,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                       borderRadius: "14px",
                     }}
                   ></div>
-                  {deviceType && hoveredDiv === 3 ? (
-                    <OverlayComponent divId={3} />
-                  ) : (
-                    <></>
-                  )}
+                  {hoveredDiv === 3 ? <OverlayComponent divId={3} /> : <></>}
                 </div>
                 <div
                   onClick={() => handleDivClick(4)}
@@ -224,35 +212,65 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                       borderRadius: "14px",
                     }}
                   ></div>
-                  {deviceType && hoveredDiv === 4 ? (
-                    <OverlayComponent divId={4} />
-                  ) : (
-                    <></>
-                  )}
+                  {hoveredDiv === 4 ? <OverlayComponent divId={4} /> : <></>}
                 </div>
                 <div
-                  onClick={onOpen}
-                  className={`flex justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
+                  onClick={() => handleDivClick(5)}
+                  onMouseEnter={() => handleMouseEnter(5)}
+                  onMouseLeave={handleMouseLeave}
+                  className={`flex relative justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
-                  Content 5
+                  <div
+                    style={{
+                      backgroundImage: "url('/portfolio.png')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      filter: hoveredDiv === 5 ? "brightness(20%)" : "none",
+                      transition: "filter 0.5s ease-in-out",
+                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
+                      borderRadius: "14px",
+                    }}
+                  ></div>
+                  {hoveredDiv === 5 ? <OverlayComponent divId={5} /> : <></>}
                 </div>
                 <div
-                  onClick={onOpen}
-                  className={`flex justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
+                  onMouseEnter={() => handleMouseEnter(6)}
+                  onMouseLeave={handleMouseLeave}
+                  className={`flex relative justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
-                  Content 6
+                  <div
+                    style={{
+                      backgroundImage: "url('/upcoming-project.png')",
+                      backgroundSize: "cover",
+                      backgroundPositionY: "top",
+                      backgroundPositionX: "right",
+                      filter: hoveredDiv === 6 ? "brightness(20%)" : "none",
+                      transition: "filter 0.5s ease-in-out",
+                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
+                      borderRadius: "14px",
+                    }}
+                  ></div>
+                  {hoveredDiv === 6 ? <OverlayComponent divId={6} /> : <></>}
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
       </ScrollAnimationWrapper>
+
       <Drawer onClose={onClose} isOpen={isOpen} placement="bottom">
         <DrawerOverlay />
-        <DrawerContent borderTopRadius={"16px"} h={{
-          base: "calc(100vh - 56px)",
-          lg: "50%",
-        }}>
+        <DrawerContent
+          borderTopRadius={"16px"}
+          h={{
+            base: "60%",
+            lg: "50%",
+          }}
+        >
           <DrawerCloseButton autoFocus={false} />
 
           <DrawerHeader>
@@ -346,8 +364,16 @@ const OverlayComponent = ({ divId }: { divId: number }) => {
       title: "Cloud Nation",
       desc: "An easy solution to deploy your web app on the cloud with just a few clicks",
     },
-    { id: 5, title: "Fuota.io", desc: "" },
-    { id: 6, title: "Fuota.io", desc: "" },
+    {
+      id: 5,
+      title: "Portfolio",
+      desc: "Platform to showcase my awesome skills",
+    },
+    {
+      id: 6,
+      title: "Come back in Future..",
+      desc: "Secretly brewing dank ideas, y'all ain't ready for this epic sauce yet! 🔥👽",
+    },
   ];
 
   return (
@@ -428,6 +454,21 @@ const detailedContent = [
       "Played a key role in ensuring Cloud Nation's front-end was scalable, maintainable, and responsive, meeting the needs of a diverse user base.",
       "Received accolades for the user-friendly design of Cloud Nation, especially for its straightforward navigation and robust feature set.",
       "Prioritized the integration of advanced features like real-time analytics and live logs to offer users a comprehensive view of their web activities.",
+    ],
+    url: "https://cloudnation-frontend.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "Personal Portfolio",
+    tagLine: "Where Art Meets Code: Front-End Perfection",
+    desc: [
+      "Expertly crafted front-end solutions using Next.js for optimal performance and scalability.",
+      "Dynamic and engaging user interfaces brought to life with Framer Motion animations.",
+      "Incorporating Lottie animations for visually captivating and interactive designs.",
+      "Enhanced interactivity and visual appeal with ts-particle for particle-based effects.",
+      "Developed with TypeScript (TS) for robust, type-safe code and maintainability.",
+      "A showcase of cutting-edge web technologies blended with creative design solutions.",
+      "Demonstrating a blend of technical proficiency and artistic creativity in web development.",
     ],
     url: "https://cloudnation-frontend.vercel.app/",
   },
