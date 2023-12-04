@@ -1,7 +1,12 @@
 import ButtonPrimary from "@/components/Misc/ButtonPrimary";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 import Typewriter from "@/components/Typewriter";
-import { Github, Instagram, Linkedin } from "@/constants/Icons/SocialLogo";
+import {
+  Github,
+  Instagram,
+  Linkedin,
+  Whatsapp,
+} from "@/constants/Icons/SocialLogo";
 import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
@@ -73,6 +78,12 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
       alt: "instagram",
       href: "https://instagram.com/a_kumbhani07?igshid=OGQ5ZDc2ODk2ZA==",
       src: <Instagram fill={primary2} />,
+    },
+    {
+      id: 4,
+      alt: "whatsapp",
+      href: "https://wa.me/919624299959?text=Hello Abhishek Kumbhani, I have a question",
+      src: <Whatsapp fill={primary2} />,
     },
   ];
 
