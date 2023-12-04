@@ -34,14 +34,14 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
 
   const height = useBreakpointValue({
     base: 350,
-    lg: 600,
+    lg: 700,
     md: 450,
     sm: 400,
   });
 
   const width = useBreakpointValue({
     base: 600,
-    xl: 705,
+    xl: 800,
     lg: 550,
     md: 600,
   });

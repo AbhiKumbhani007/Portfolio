@@ -7,7 +7,7 @@ interface props {
   eraseSpeed?: number;
 }
 
-const Typewriter = ({ texts, writeSpeed = 250, eraseSpeed = 150 }: props) => {
+const Typewriter = ({ texts, writeSpeed = 150, eraseSpeed = 150 }: props) => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
