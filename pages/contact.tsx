@@ -1,13 +1,15 @@
 import Particles from "@/components/Misc/ParticleComp";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
+import { darkPrimary1, lightPrimary2 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import {
+  Box,
   Button,
-  FormControl,
-  FormLabel,
   Input,
   Textarea,
+  useColorModeValue,
 } from "@chakra-ui/react";
+import { ValidationError, useForm } from "@formspree/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import { useMemo } from "react";
@@ -18,7 +20,12 @@ const roboto = Roboto({
 });
 
 function Contact({ isOpen }: { isOpen: boolean }) {
+  const [state, handleSubmit] = useForm("myyqrgrn");
+
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+
+  const primary2 = useColorModeValue(lightPrimary2, darkPrimary1);
+
   return (
     <div
       className={`max-w-screen-2xl mt-24 xl:mt-[7%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-x-hidden `}
@@ -26,7 +33,8 @@ function Contact({ isOpen }: { isOpen: boolean }) {
         filter: isOpen ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
       }}
-    ><Particles />
+    >
+      <Particles />
       <ScrollAnimationWrapper
         className={`flex justify-center items-center ${roboto.className}`}
       >
@@ -49,35 +57,70 @@ function Contact({ isOpen }: { isOpen: boolean }) {
           <div className=" flex flex-col justify-center items-center w-full max-w-3xl">
             <div className="flex gap-3 text-3xl lg:text-5xl font-bold tracking-wider">
               <p className="text-[#445964]">Contacte</p>
-              <p className="text-[#263138]">Me</p>
+              <p
+                style={{
+                  color: primary2,
+                }}
+              >
+                Me
+              </p>
             </div>
           </div>
           <div className="flex flex-col w-full pt-16 lg:pt-20 max-w-xl gap-8 pb-10">
-            <FormControl>
-              <FormLabel>
-                <h5 className="text-[#445964] font-bold text-xl w-24">Name</h5>
-              </FormLabel>
-              <Input placeholder="David Smith" focusBorderColor="#445964" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>
-                <h5 className="text-[#445964] font-bold text-xl w-24">Email</h5>
-              </FormLabel>
-              <Input placeholder="xyz@gmail.com" focusBorderColor="#445964" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>
-                <h5 className="text-[#445964] font-bold text-xl w-24">
-                  Message
-                </h5>
-              </FormLabel>
-              <Textarea
-                placeholder="Please provide a short description of your business and any questions you have about our services."
+            <form
+              onSubmit={(e) => {
+                handleSubmit(e);
+              }}
+            >
+              <label htmlFor="Name">Name</label>
+              <Box className="h-3" />
+              <Input
                 focusBorderColor="#445964"
-                height={"150px"}
+                id="Name"
+                type="text"
+                name="name"
+                placeholder="David Smith"
               />
-            </FormControl>
-            <Button>Submit</Button>
+              <ValidationError
+                prefix="Name"
+                field="Name"
+                errors={state.errors}
+              />
+              <Box className="h-7" />
+              <label htmlFor="email">Email Address</label>
+              <Box className="h-3" />
+              <Input
+                focusBorderColor="#445964"
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Email Address"
+              />
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+              />
+              <Box className="h-7" />
+              <label htmlFor="email">Message</label>
+              <Box className="h-3" />
+              <Textarea
+                focusBorderColor="#445964"
+                id="message"
+                name="message"
+                height={"150px"}
+                placeholder="Please provide a short description of your business and any questions you have about our services."
+              />
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
+              <Box className="h-10" />
+              <Button type="submit" disabled={state.submitting}>
+                Submit
+              </Button>
+            </form>
           </div>
         </motion.div>
         <div className="h-16" />
