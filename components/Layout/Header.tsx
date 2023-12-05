@@ -145,12 +145,12 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
           }}
         >
           <div
-            className="flex items-center gap-4 cursor-pointer"
+            className="flex items-center gap-0 lg:gap-4 cursor-pointer"
             onClick={() => router.push("/")}
           >
             <Image src="/logo.png" width={60} height={60} alt="logo" />
             <p
-              className={` font-extrabold text-2xl xl:text-3xl flex-nowrap ${roboto.className}`}
+              className={` font-extrabold text-[18px] md:text-2xl lg:text-2xl xl:text-3xl flex-nowrap ${roboto.className}`}
               style={{
                 color: primary1,
               }}

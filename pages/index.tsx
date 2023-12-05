@@ -34,7 +34,7 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
 
   const height = useBreakpointValue({
     base: 350,
-    lg: 700,
+    lg: 600,
     md: 450,
     sm: 400,
   });

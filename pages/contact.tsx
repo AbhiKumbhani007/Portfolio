@@ -28,7 +28,7 @@ function Contact({ isOpen }: { isOpen: boolean }) {
 
   return (
     <div
-      className={`max-w-screen-2xl mt-24 xl:mt-[7%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-x-hidden `}
+      className={`max-w-screen-2xl mt-24 xl:mt-[5%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-x-hidden `}
       style={{
         filter: isOpen ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",

@@ -74,7 +74,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
 
   return (
     <div
-      className={`max-w-screen-2xl mt-14 xl:mt-[8%] lg:mt-[15%] md:mt-[10%] px-8 xl:px-16 mx-auto overflow-x-hidden`}
+      className={`max-w-screen-2xl mt-24 xl:mt-[5%] lg:mt-[15%] md:mt-[10%] px-8 xl:px-16 mx-auto overflow-x-hidden`}
       style={{
         filter: open ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
@@ -270,7 +270,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
           borderTopRadius={"16px"}
           h={{
             base: "80%",
-            lg: "50%",
+            lg: "70%",
           }}
         >
           <DrawerCloseButton autoFocus={false} />
@@ -344,7 +344,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-      <div className="h-16" />
+      <div className="h-10" />
     </div>
   );
 }

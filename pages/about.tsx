@@ -204,7 +204,7 @@ export default function About({ isOpen }: { isOpen: boolean }) {
           </div>
         </motion.div>
       </ScrollAnimationWrapper>
-      <div className="h-10 lg:h-0" />
+      <div className="h-10" />
     </div>
   );
 }
