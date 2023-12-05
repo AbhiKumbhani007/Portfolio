@@ -14,6 +14,7 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  Icon,
   IconButton,
   Text,
   Tooltip,
@@ -28,6 +29,7 @@ import { MdOutlineLink } from "react-icons/md";
 import { TbPoint } from "react-icons/tb";
 import { FiHexagon } from "react-icons/fi";
 import Particles from "@/components/Misc/ParticleComp";
+import { TbHexagonFilled } from "react-icons/tb";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -72,7 +74,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
 
   return (
     <div
-      className={`max-w-screen-2xl mt-12 xl:mt-[8%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-x-hidden`}
+      className={`max-w-screen-2xl mt-14 xl:mt-[8%] lg:mt-[15%] md:mt-[10%] px-8 xl:px-16 mx-auto overflow-x-hidden`}
       style={{
         filter: open ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
@@ -267,7 +269,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
         <DrawerContent
           borderTopRadius={"16px"}
           h={{
-            base: "60%",
+            base: "80%",
             lg: "50%",
           }}
         >
@@ -311,13 +313,20 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
             </Box>
           </DrawerHeader>
 
-          <DrawerBody maxH={"90vh"} overflowY={"auto"}>
+          <DrawerBody maxH={"100vh"} overflowY={"auto"}>
             {clickedDiv &&
               detailedContent[clickedDiv - 1].desc.map((item, index) => (
-                <Box className="flex w-full items-center gap-2 pt-4">
-                  <FiHexagon
-                    color={colorMode === "light" ? lightPrimary2 : "#FFFFFF"}
-                  />
+                <Box className="flex w-full items-start gap-2 pt-4">
+                  <Box className="">
+                    <Icon className="w-6 h-6">
+                      <TbHexagonFilled
+                        size={20}
+                        color={
+                          colorMode === "light" ? lightPrimary2 : "#FFFFFF"
+                        }
+                      />
+                    </Icon>
+                  </Box>
                   <Text
                     key={index}
                     color={detailsDesc}

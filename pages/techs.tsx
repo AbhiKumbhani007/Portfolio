@@ -24,11 +24,7 @@ import {
   lightPrimary2,
 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import {
-  useBreakpointValue,
-  useColorMode,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import { useMemo } from "react";
@@ -45,8 +41,6 @@ function Techs({ isOpen }: { isOpen: boolean }) {
 
   const primary2 = useColorModeValue(lightPrimary2, darkPrimary2);
 
-  const { colorMode } = useColorMode();
-
   const size = useBreakpointValue({
     base: 70,
     lg: 90,
@@ -55,7 +49,7 @@ function Techs({ isOpen }: { isOpen: boolean }) {
 
   return (
     <div
-      className={`max-w-screen-2xl mt-24 xl:mt-[7%] lg:mt-[15%] px-8 xl:px-16 mx-auto overflow-x-hidden `}
+      className={`max-w-screen-2xl mt-24 xl:mt-[7%] lg:mt-[10%] px-8 xl:px-16 mx-auto overflow-x-hidden `}
       style={{
         filter: isOpen ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
@@ -103,13 +97,13 @@ function Techs({ isOpen }: { isOpen: boolean }) {
                 },
               }}
             >
-              <HTML height={size} width={size} tooltip="HTML"/>
+              <HTML height={size} width={size} tooltip="HTML" />
 
-              <CSS height={size} width={size} tooltip="CSS"/>
-              <JS height={size} width={size} tooltip="JavaScript"/>
-              <TypeScript height={size} width={size} tooltip="TypeScript"/>
-              <REACT height={size} width={size} tooltip="React.Js"/>
-              <ElectronJs height={size} width={size} tooltip="Electron.Js"/>
+              <CSS height={size} width={size} tooltip="CSS" />
+              <JS height={size} width={size} tooltip="JavaScript" />
+              <TypeScript height={size} width={size} tooltip="TypeScript" />
+              <REACT height={size} width={size} tooltip="React.Js" />
+              <ElectronJs height={size} width={size} tooltip="Electron.Js" />
             </motion.div>
             <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
               <p
@@ -132,11 +126,11 @@ function Techs({ isOpen }: { isOpen: boolean }) {
                 },
               }}
             >
-              <Redux height={size} width={size} tooltip="Redux Toolkit"/>
-              <NextJs height={size} width={size} tooltip="Next.Js"/>
-              <Tailwind height={size} width={size} tooltip="Tailwind Css"/>
-              <MUI height={size} width={size} tooltip="Material UI"/>
-              <ChakraUI height={size} width={size} tooltip="Chakra UI"/>
+              <Redux height={size} width={size} tooltip="Redux Toolkit" />
+              <NextJs height={size} width={size} tooltip="Next.Js" />
+              <Tailwind height={size} width={size} tooltip="Tailwind Css" />
+              <MUI height={size} width={size} tooltip="Material UI" />
+              <ChakraUI height={size} width={size} tooltip="Chakra UI" />
             </motion.div>
 
             <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
@@ -160,9 +154,9 @@ function Techs({ isOpen }: { isOpen: boolean }) {
                 },
               }}
             >
-              <Github height={size} width={size} tooltip="Github"/>
-              <VsCode height={size} width={size}tooltip="VsCode" />
-              <Jira height={size} width={size} tooltip="Jira"/>
+              <Github height={size} width={size} tooltip="Github" />
+              <VsCode height={size} width={size} tooltip="VsCode" />
+              <Jira height={size} width={size} tooltip="Jira" />
             </motion.div>
           </div>
         </motion.div>

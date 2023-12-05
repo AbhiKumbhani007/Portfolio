@@ -55,14 +55,14 @@ function Testimonial({ isOpen }: { isOpen: boolean }) {
                     color: primary2,
                   }}
                 >
-                  Experiência
+                  Professional
                 </h1>
-                <h1 className="text-3xl lg:text-5xl font-extrabold text-[#445964]">
-                  Profissional
+                <h1 className="text-3xl lg:text-5xl font-extrabold tracking-wider text-[#445964]">
+                  Experience
                 </h1>
               </div>
               <h4 className="text-lg lg:text-xl font-semibold text:center lg:text-end text-[#445964] ">
-                Minha jornada esta apenas começando, sempre aprendendo
+                My journey is just beginning, always learning
               </h4>
             </div>
           </div>
@@ -94,8 +94,8 @@ function Testimonial({ isOpen }: { isOpen: boolean }) {
           </div>
           <DoubleQuotes fill={primary2} />
           <h1 className="text-[#445964] font-bold text-2xl max-w-xl text-center">
-            “Aprender é a unica coisa que a mente não se cansa, nunca tem medo e
-            nunca se arrepende”
+            “Learning is the only thing that the mind never gets tired of, is
+            never afraid of and never regrets”
           </h1>
           <h1
             className="text-4xl font-extrabold"
