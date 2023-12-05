@@ -56,7 +56,7 @@ function Contact({ isOpen }: { isOpen: boolean }) {
         >
           <div className=" flex flex-col justify-center items-center w-full max-w-3xl">
             <div className="flex gap-3 text-3xl lg:text-5xl font-bold tracking-wider">
-              <p className="text-[#445964]">Contacte</p>
+              <p className="text-[#445964]">Contact</p>
               <p
                 style={{
                   color: primary2,
