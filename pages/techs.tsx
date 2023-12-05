@@ -103,13 +103,13 @@ function Techs({ isOpen }: { isOpen: boolean }) {
                 },
               }}
             >
-              <HTML height={size} width={size} />
+              <HTML height={size} width={size} tooltip="HTML"/>
 
-              <CSS height={size} width={size} />
-              <JS height={size} width={size} />
-              <TypeScript height={size} width={size} />
-              <REACT height={size} width={size} />
-              <ElectronJs height={size} width={size} />
+              <CSS height={size} width={size} tooltip="CSS"/>
+              <JS height={size} width={size} tooltip="JavaScript"/>
+              <TypeScript height={size} width={size} tooltip="TypeScript"/>
+              <REACT height={size} width={size} tooltip="React.Js"/>
+              <ElectronJs height={size} width={size} tooltip="Electron.Js"/>
             </motion.div>
             <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
               <p
@@ -132,11 +132,11 @@ function Techs({ isOpen }: { isOpen: boolean }) {
                 },
               }}
             >
-              <Redux height={size} width={size} />
-              <NextJs height={size} width={size} />
-              <Tailwind height={size} width={size} />
-              <MUI height={size} width={size} />
-              <ChakraUI height={size} width={size} />
+              <Redux height={size} width={size} tooltip="Redux Toolkit"/>
+              <NextJs height={size} width={size} tooltip="Next.Js"/>
+              <Tailwind height={size} width={size} tooltip="Tailwind Css"/>
+              <MUI height={size} width={size} tooltip="Material UI"/>
+              <ChakraUI height={size} width={size} tooltip="Chakra UI"/>
             </motion.div>
 
             <div className="flex gap-3 text-3xl lg:text-4xl font-extrabold tracking-wider pt-16 lg:pt-20">
@@ -160,9 +160,9 @@ function Techs({ isOpen }: { isOpen: boolean }) {
                 },
               }}
             >
-              <Github height={size} width={size} />
-              <VsCode height={size} width={size} />
-              <Jira height={size} width={size} />
+              <Github height={size} width={size} tooltip="Github"/>
+              <VsCode height={size} width={size}tooltip="VsCode" />
+              <Jira height={size} width={size} tooltip="Jira"/>
             </motion.div>
           </div>
         </motion.div>
