@@ -8,11 +8,12 @@ import {
   Input,
   Textarea,
   useColorModeValue,
+  useToast,
 } from "@chakra-ui/react";
 import { ValidationError, useForm } from "@formspree/react";
 import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -25,6 +26,25 @@ function Contact({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   const primary2 = useColorModeValue(lightPrimary2, darkPrimary1);
+
+  const formRef = useRef<any>(null);
+
+  const toast = useToast();
+
+  useEffect(() => {
+    if (state.succeeded) {
+      toast({
+        title: "Submitted.",
+        description: "I will get back to you soon.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+        variant: "left-accent",
+        position:"bottom-right"
+      });
+      formRef.current.reset();
+    }
+  }, [state]);
 
   return (
     <div
@@ -71,6 +91,7 @@ function Contact({ isOpen }: { isOpen: boolean }) {
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
+              ref={formRef}
             >
               <label htmlFor="Name">Name</label>
               <Box className="h-3" />
