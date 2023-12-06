@@ -1,4 +1,4 @@
-import { Box, Tooltip, useColorMode } from "@chakra-ui/react";
+import { Box, Tooltip, useColorMode, useDisclosure } from "@chakra-ui/react";
 import styles from "./icon.module.css";
 
 interface IconProps {
@@ -9,8 +9,9 @@ interface IconProps {
 }
 
 export const HTML = ({ height = 90, width = 90, tooltip }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width}
@@ -18,6 +19,9 @@ export const HTML = ({ height = 90, width = 90, tooltip }: IconProps) => {
         viewBox="0 0 100 106"
         fill="none"
         className={styles.html}
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path d="M99.3609 0.747113C98.9044 0.270042 98.2482 0 97.5634 0H2.43661C1.75183 0 1.09559 0.270042 0.639071 0.747113C0.173041 1.22418 -0.0552175 1.86328 0.0113586 2.51138L8.58057 93.3621C8.66617 94.3162 9.36996 95.1084 10.3401 95.3784L49.3247 105.91C49.534 105.973 49.7622 106 49.9905 106C50.2187 106 50.4375 105.973 50.6562 105.91L89.6694 95.3784C90.6395 95.1084 91.3338 94.3162 91.4289 93.3621L99.9886 2.51138C100.055 1.86328 99.827 1.22418 99.3609 0.747113ZM78.8462 32.0718H33.0423L34.136 43.8006H77.7429L74.4712 78.4648L49.981 85.4679L49.7432 85.3959L25.5383 78.4558L24.2163 64.3327H36.0762L36.5898 69.8145L50.1236 72.4969L63.4102 69.8145L64.8273 54.9803H23.3318L20.1076 20.8652H79.9019L78.8462 32.0718Z" />
       </svg>
@@ -27,15 +31,18 @@ export const HTML = ({ height = 90, width = 90, tooltip }: IconProps) => {
 
 export const CSS = ({ height = 90, width = 90, tooltip }: IconProps) => {
   const { colorMode } = useColorMode();
-
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width}
         height={height}
         className={colorMode === "light" ? styles.css : styles.cssDark}
         viewBox="0 0 95 106"
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path
           fill-rule="evenodd"
@@ -53,14 +60,18 @@ export const JS = ({
   fill = "#445964",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width}
         height={height}
         viewBox="0 0 107 107"
         className={styles.js}
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path d="M0 106.733V0H106.733V106.733H0Z" />
         <path
@@ -78,16 +89,20 @@ export const TypeScript = ({
   fill = "#000000",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   const { colorMode } = useColorMode();
 
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         width={width}
         height={height}
         viewBox="0 0 32 32"
         className={colorMode === "light" ? styles.ts : styles.tsDark}
         xmlns="http://www.w3.org/2000/svg"
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path d="M0 16v16h32v-32h-32zM25.786 14.724c0.813 0.203 1.432 0.568 2.005 1.156 0.292 0.312 0.729 0.885 0.766 1.026 0.010 0.042-1.38 0.974-2.224 1.495-0.031 0.021-0.156-0.109-0.292-0.313-0.411-0.599-0.844-0.859-1.505-0.906-0.969-0.063-1.594 0.443-1.589 1.292-0.005 0.208 0.042 0.417 0.135 0.599 0.214 0.443 0.615 0.708 1.854 1.245 2.292 0.984 3.271 1.635 3.88 2.557 0.682 1.031 0.833 2.677 0.375 3.906-0.51 1.328-1.771 2.234-3.542 2.531-0.547 0.099-1.849 0.083-2.438-0.026-1.286-0.229-2.505-0.865-3.255-1.698-0.297-0.323-0.87-1.172-0.833-1.229 0.016-0.021 0.146-0.104 0.292-0.188s0.682-0.396 1.188-0.688l0.922-0.536 0.193 0.286c0.271 0.411 0.859 0.974 1.214 1.161 1.021 0.542 2.422 0.464 3.115-0.156 0.281-0.234 0.438-0.594 0.417-0.958 0-0.37-0.047-0.536-0.24-0.813-0.25-0.354-0.755-0.656-2.198-1.281-1.651-0.714-2.365-1.151-3.010-1.854-0.406-0.464-0.708-1.010-0.88-1.599-0.12-0.453-0.151-1.589-0.057-2.042 0.339-1.599 1.547-2.708 3.281-3.036 0.563-0.109 1.875-0.068 2.427 0.068zM18.276 16.063l0.010 1.307h-4.167v11.839h-2.948v-11.839h-4.161v-1.281c0-0.714 0.016-1.307 0.036-1.323 0.016-0.021 2.547-0.031 5.62-0.026l5.594 0.016z" />
       </svg>
@@ -101,8 +116,9 @@ export const REACT = ({
   fill = "#445964",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width}
@@ -110,6 +126,9 @@ export const REACT = ({
         viewBox="0 0 107 96"
         // fill={fill}
         className={styles.react}
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path
           d="M61.8396 47.8723C61.8396 52.6506 57.9736 56.5166 53.1953 56.5166C48.417 56.5166 44.551 52.6506 44.551 47.8723C44.551 43.094 48.417 39.228 53.1953 39.228C57.9736 39.228 61.8396 43.094 61.8396 47.8723Z"
@@ -138,16 +157,20 @@ export const ElectronJs = ({
   fill = "#000000",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   const { colorMode } = useColorMode();
 
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         width={width}
         height={height}
         viewBox="-1 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
         fill={fill}
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
         className={
           colorMode === "light" ? styles.electron : styles.electronDark
         }
@@ -164,10 +187,11 @@ export const Redux = ({
   fill = "#000000",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   const { colorMode } = useColorMode();
 
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         width={width}
         height={height}
@@ -175,6 +199,9 @@ export const Redux = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={colorMode === "light" ? styles.redux : styles.reduxDark}
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path d="M21.7868 21.556C22.8939 21.4433 23.7338 20.505 23.6956 19.3789C23.6575 18.253 22.703 17.3522 21.5577 17.3522H21.4814C20.2978 17.3897 19.3817 18.3656 19.4199 19.5291C19.4581 20.0921 19.6871 20.58 20.0307 20.9178C18.7327 23.4326 16.7475 25.2717 13.7698 26.8106C11.7464 27.8615 9.6468 28.2369 7.54715 27.9742C5.82918 27.749 4.49301 26.9984 3.65301 25.7596C2.43144 23.9205 2.31695 21.9312 3.34773 19.942C4.07312 18.5157 5.21828 17.4647 5.94367 16.9392C5.79098 16.4513 5.56187 15.6256 5.44738 15.0251C-0.0882044 18.9661 0.484491 24.2959 2.16426 26.8106C3.42402 28.6873 5.98187 29.8509 8.80691 29.8509C9.57039 29.8509 10.3339 29.7757 11.0975 29.5882C15.9841 28.6498 19.6872 25.7972 21.7868 21.556ZM28.5059 16.9018C25.6045 13.5613 21.3287 11.7222 16.4421 11.7222H15.8314C15.4878 11.0466 14.7624 10.5961 13.9607 10.5961H13.8843C12.7009 10.6337 11.7848 11.6095 11.8229 12.7731C11.8611 13.8991 12.8154 14.7999 13.9607 14.7999H14.037C14.8769 14.7624 15.6023 14.2369 15.9077 13.5237H16.5948C19.4963 13.5237 22.2449 14.3494 24.7265 15.9634C26.6352 17.202 28.0096 18.816 28.7731 20.7677C29.4221 22.3441 29.3839 23.883 28.6967 25.1967C27.6278 27.1859 25.8336 28.2744 23.4666 28.2744C21.9395 28.2744 20.4889 27.824 19.7253 27.4862C19.3054 27.8615 18.5418 28.462 18.0073 28.8375C19.649 29.5881 21.3287 30.001 22.9321 30.001C26.597 30.001 29.3076 28.0116 30.3384 26.0224C31.4454 23.8454 31.369 20.0921 28.5059 16.9018ZM9.1123 22.1939C9.15051 23.3199 10.1049 24.2206 11.2502 24.2206H11.3266C12.51 24.1832 13.4262 23.2073 13.388 22.0438C13.3499 20.9177 12.3954 20.017 11.2502 20.017H11.1739C11.0975 20.017 10.9829 20.017 10.9067 20.0544C9.3414 17.5022 8.69242 14.7248 8.92152 11.7221C9.0741 9.47006 9.83769 7.51828 11.1739 5.9043C12.2809 4.51555 14.4188 3.83996 15.8696 3.80252C19.9162 3.7274 21.634 8.68179 21.7486 10.6711C22.2449 10.7837 23.0848 11.0465 23.6575 11.2342C23.1993 5.15382 19.3817 2.00098 15.7169 2.00098C12.2809 2.00098 9.1123 4.44067 7.85242 8.04387C6.09637 12.8481 7.24164 17.4647 9.37949 21.1055C9.18871 21.3682 9.0741 21.7811 9.1123 22.194V22.1939Z" />
       </svg>
@@ -188,8 +215,9 @@ export const NextJs = ({
   fill = "#445964",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         width={width}
         height={height}
@@ -197,6 +225,9 @@ export const NextJs = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={styles.next}
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <g clip-path="url(#clip0)">
           <path d="M11.2141 0.00645944C11.1625 0.0111515 10.9982 0.0275738 10.8504 0.039304C7.44164 0.346635 4.24868 2.18593 2.22639 5.01291C1.10029 6.58476 0.380059 8.36775 0.107918 10.2563C0.0117302 10.9156 0 11.1103 0 12.0041C0 12.898 0.0117302 13.0927 0.107918 13.7519C0.760117 18.2587 3.96716 22.0452 8.31672 23.4481C9.0956 23.6991 9.91672 23.8704 10.8504 23.9736C11.2141 24.0135 12.7859 24.0135 13.1496 23.9736C14.7613 23.7953 16.1267 23.3965 17.4733 22.7091C17.6798 22.6035 17.7196 22.5754 17.6915 22.5519C17.6727 22.5378 16.793 21.3578 15.7372 19.9314L13.8182 17.339L11.4135 13.7801C10.0903 11.8235 9.00176 10.2235 8.99238 10.2235C8.98299 10.2211 8.97361 11.8024 8.96891 13.7331C8.96188 17.1138 8.95953 17.2499 8.9173 17.3296C8.85631 17.4446 8.80938 17.4915 8.71085 17.5431C8.63578 17.5807 8.57009 17.5877 8.21584 17.5877H7.80997L7.70205 17.5197C7.63167 17.4751 7.58006 17.4164 7.54487 17.3484L7.4956 17.2428L7.50029 12.539L7.50733 7.83285L7.58006 7.74136C7.6176 7.69209 7.69736 7.62875 7.75367 7.59825C7.84985 7.55133 7.88739 7.54664 8.29325 7.54664C8.77185 7.54664 8.85161 7.5654 8.97595 7.70147C9.01114 7.73901 10.3132 9.7003 11.871 12.0628C13.4287 14.4252 15.5589 17.651 16.6053 19.2346L18.5056 22.1132L18.6018 22.0499C19.4534 21.4962 20.3543 20.7079 21.0674 19.8868C22.5853 18.1437 23.5636 16.0182 23.8921 13.7519C23.9883 13.0927 24 12.898 24 12.0041C24 11.1103 23.9883 10.9156 23.8921 10.2563C23.2399 5.74957 20.0328 1.96306 15.6833 0.560125C14.9161 0.311445 14.0997 0.140184 13.1848 0.036958C12.9595 0.0134976 11.4088 -0.0123089 11.2141 0.00645944ZM16.1267 7.26511C16.2393 7.32142 16.3308 7.42933 16.3636 7.54194C16.3824 7.60294 16.3871 8.90734 16.3824 11.8469L16.3754 16.0651L15.6317 14.9249L14.8856 13.7848V10.7185C14.8856 8.73608 14.895 7.62171 14.9091 7.56775C14.9466 7.43637 15.0287 7.33315 15.1413 7.27215C15.2375 7.22288 15.2727 7.21819 15.6411 7.21819C15.9883 7.21819 16.0493 7.22288 16.1267 7.26511Z" />
@@ -217,10 +248,11 @@ export const Tailwind = ({
   fill = "#000000",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   const { colorMode } = useColorMode();
 
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         // fill={fill}
         width={width}
@@ -228,6 +260,9 @@ export const Tailwind = ({
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
         className={colorMode === "light" ? styles.tw : styles.twDark}
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path
           fill-rule="evenodd"
@@ -245,8 +280,9 @@ export const MUI = ({
   fill = "#445964",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         width={width}
         height={height}
@@ -255,6 +291,9 @@ export const MUI = ({
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid"
         className={styles.mui}
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <g>
           <polygon
@@ -285,10 +324,11 @@ export const ChakraUI = ({
   fill = "#000000",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   const { colorMode } = useColorMode();
 
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         className={colorMode === "light" ? styles.cui : styles.cuiDark}
         width={width}
@@ -296,6 +336,9 @@ export const ChakraUI = ({
         viewBox="0 0 24 24"
         role="img"
         xmlns="http://www.w3.org/2000/svg"
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path d="M12 0C5.352 0 0 5.352 0 12s5.352 12 12 12 12-5.352 12-12S18.648 0 12 0zm2.8 4.333c.13-.004.248.136.171.278l-3.044 5.58a.187.187 0 0 0 .164.276h5.26c.17 0 .252.207.128.323l-9.22 8.605c-.165.154-.41-.063-.278-.246l4.364-6.021a.187.187 0 0 0-.151-.296H6.627a.187.187 0 0 1-.131-.32l8.18-8.123a.182.182 0 0 1 .125-.056z" />
       </svg>
@@ -415,16 +458,20 @@ export const VsCode = ({
   fill = "#000000",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   const { colorMode } = useColorMode();
 
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         width={width}
         height={height}
         viewBox="0 0 24 24"
         className={colorMode === "light" ? styles.vsc : styles.vscDark}
         xmlns="http://www.w3.org/2000/svg"
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path d="M0.228341 8.36915C0.228341 8.36915 -0.356212 7.94324 0.345251 7.37453L1.97956 5.89736C1.97956 5.89736 2.44721 5.40004 2.94164 5.83334L18.0231 17.375V22.9094C18.0231 22.9094 18.0158 23.7785 16.9124 23.6825L0.228341 8.36915Z" />
         <path d="M4.11555 11.9367L0.228273 15.5089C0.228273 15.5089 -0.171172 15.8093 0.228273 16.346L2.03308 18.0053C2.03308 18.0053 2.46175 18.4706 3.09502 17.9413L7.21611 14.7827L4.11555 11.9367Z" />
@@ -441,8 +488,9 @@ export const Jira = ({
   fill = "#445964",
   tooltip,
 }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         width={width}
         height={height}
@@ -450,6 +498,9 @@ export const Jira = ({
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         className={styles.jira}
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path d="M12.004 0c-2.35 2.395-2.365 6.185.133 8.585l3.412 3.413-3.197 3.198a6.501 6.501 0 0 1 1.412 7.04l9.566-9.566a.95.95 0 0 0 0-1.344L12.004 0zm-1.748 1.74L.67 11.327a.95.95 0 0 0 0 1.344C4.45 16.44 8.22 20.244 12 24c2.295-2.298 2.395-6.096-.08-8.533l-3.47-3.469 3.2-3.2c-1.918-1.955-2.363-4.725-1.394-7.057z" />
       </svg>
@@ -458,14 +509,18 @@ export const Jira = ({
 };
 
 export const Github = ({ height = 90, width = 90, tooltip }: IconProps) => {
+  const { isOpen, onClose, onToggle, onOpen } = useDisclosure();
   return (
-    <CustomTooltip label={tooltip}>
+    <CustomTooltip label={tooltip} isOpen={isOpen}>
       <svg
         width={width}
         height={height}
         viewBox="0 0 40 38"
         className={styles.git}
         xmlns="http://www.w3.org/2000/svg"
+        onMouseEnter={onOpen}
+        onMouseLeave={onClose}
+        onClick={onToggle}
       >
         <path
           id="Git"
@@ -476,7 +531,7 @@ export const Github = ({ height = 90, width = 90, tooltip }: IconProps) => {
   );
 };
 
-const CustomTooltip = ({ children, label, ...props }: any) => {
+const CustomTooltip = ({ children, label, isOpen, ...props }: any) => {
   return (
     <Tooltip
       label={label}
@@ -485,6 +540,7 @@ const CustomTooltip = ({ children, label, ...props }: any) => {
       borderRadius="md" // Border radius
       p="2" // Padding
       {...props} // Spread other props
+      isOpen={isOpen}
     >
       {children}
     </Tooltip>
