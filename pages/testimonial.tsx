@@ -1,7 +1,7 @@
 import Particles from "@/components/Misc/ParticleComp";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 import { DoubleQuotes } from "@/constants/Icons/Icons";
-import { darkPrimary1, lightPrimary1 } from "@/constants/color";
+import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -25,7 +25,7 @@ const roboto = Roboto({
 function Testimonial({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
-  const primary2 = useColorModeValue(lightPrimary1, darkPrimary1);
+  const primary2 = useColorModeValue(lightPrimary2, darkPrimary1);
 
   return (
     <div
