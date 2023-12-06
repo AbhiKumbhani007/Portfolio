@@ -9,7 +9,7 @@ import {
 } from "@/constants/Icons/SocialLogo";
 import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
+import { Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useLottie } from "lottie-react";
 import { Roboto } from "next/font/google";
@@ -25,8 +25,6 @@ const roboto = Roboto({
 
 export default function Home({ isOpen }: { isOpen: boolean }) {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
-
-  const primary1 = useColorModeValue(lightPrimary1, darkPrimary1);
 
   const primary2 = useColorModeValue(lightPrimary2, darkPrimary1);
 
@@ -82,7 +80,7 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
     {
       id: 4,
       alt: "whatsapp",
-      href: "https://wa.me/919624299959?text=Hello Abhishek Kumbhani, I have a question",
+      href: "https://wa.me/919624299959?text=Hello Abhishek Kumbhani, I have a amazing project for you.",
       src: <Whatsapp fill={primary2} />,
     },
   ];
@@ -101,16 +99,8 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
           className="flex lg:flex-row flex-col-reverse justify-between gap-8 py-6 sm:py-0 w-full"
           variants={scrollAnimation}
         >
-          <div className=" flex flex-col pt-0 lg:pt-20 md:pt-0 justify-center items-center lg:items-start md:items-center sm:items-start gap-8 lg:gap-20 md:gap-8 w-full lg:w-[70%] row-start-2 sm:row-start-1 text-[#445964]">
-            <div className="flex flex-col justify-center items-center lg:items-start md:items-start sm:items-start">
-              <p
-                className={`text-md ${roboto.className}`}
-                style={{
-                  color: primary1,
-                }}
-              >
-                Hello people,
-              </p>
+          <div className=" flex flex-col pt-0 lg:pt-20 md:pt-0 justify-center items-center lg:items-start md:items-center sm:items-start gap-8 lg:gap-16 md:gap-8 w-full lg:w-[70%] row-start-2 sm:row-start-1 text-[#445964]">
+            <div className="flex flex-col justify-center items-center lg:items-start md:items-center sm:items-start">
               <h1
                 className={`flex items-center text-3xl lg:text-5xl font-extrabold text-black-600 leading-normal break-words ${roboto.className} text-center lg:text-left md:text-left sm:text-left gap-1.5 lg:gap-3.5 `}
               >
@@ -126,14 +116,16 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
                   texts={["Programmer", "Web Developer", "React Developer"]}
                 />
               </h1>
-              <p
-                className={`text-lg text-center font-medium pt-5 ${roboto.className}`}
+              <Text
+                className={`text-base lg:text-lg text-center lg:leading-loose lg:text-left font-medium pt-5 ${roboto.className}`}
                 style={{
                   color: textColor,
                 }}
               >
-                Welcome to my portfolio website
-              </p>
+                Hello, Internet wanderer! I'm your friendly neighborhood web
+                development wizard, weaving code and creativity into beautiful,
+                responsive web experiences with a touch of whimsy.
+              </Text>
             </div>
             <ButtonPrimary
               className="w-fit capitalize"
