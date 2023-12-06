@@ -1,10 +1,6 @@
+import Particles from "@/components/Misc/ParticleComp";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
-import {
-  darkPrimary1,
-  darkPrimary2,
-  lightPrimary1,
-  lightPrimary2,
-} from "@/constants/color";
+import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import {
   Box,
@@ -22,13 +18,10 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import { color, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Roboto } from "next/font/google";
 import { useEffect, useMemo, useState } from "react";
 import { MdOutlineLink } from "react-icons/md";
-import { TbPoint } from "react-icons/tb";
-import { FiHexagon } from "react-icons/fi";
-import Particles from "@/components/Misc/ParticleComp";
 import { TbHexagonFilled } from "react-icons/tb";
 
 const roboto = Roboto({
@@ -74,7 +67,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
 
   return (
     <div
-      className={`max-w-screen-2xl mt-24 xl:mt-[5%] lg:mt-[15%] md:mt-[10%] px-8 xl:px-16 mx-auto overflow-x-hidden`}
+      className={`max-w-screen-2xl mt-12 xl:mt-[5%] lg:mt-[15%] md:mt-[10%] px-6 xl:px-16 mx-auto overflow-x-hidden`}
       style={{
         filter: open ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
@@ -135,7 +128,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                   onClick={() => handleDivClick(1)}
                   onMouseEnter={() => handleMouseEnter(1)}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex relative justify-center items-center rounded-2xl shadow-md row-span-3 lg:row-span-6 w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
+                  className={`flex relative justify-center items-center rounded-2xl shadow-md row-span-3 lg:row-span-6 w-[calc(100vw-50px)] md:w-80 xl:w-96 h-[180px] lg:h-[230px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
@@ -156,7 +149,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                   onClick={() => handleDivClick(2)}
                   onMouseEnter={() => handleMouseEnter(2)}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex relative justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
+                  className={`flex relative justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-[calc(100vw-50px)] md:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
@@ -178,7 +171,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                   onClick={() => handleDivClick(3)}
                   onMouseEnter={() => handleMouseEnter(3)}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex relative justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
+                  className={`flex relative justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-[calc(100vw-50px)] md:w-80 xl:w-96 h-[180px] lg:h-[230px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
@@ -199,7 +192,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                   onClick={() => handleDivClick(4)}
                   onMouseEnter={() => handleMouseEnter(4)}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex relative justify-center items-center  bg-[#263138] text-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-80 xl:w-96 h-[180px] lg:h-[220px] select-none cursor-pointer`}
+                  className={`flex relative justify-center items-center  bg-[#263138] text-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 lg:row-span-6 w-[calc(100vw-50px)] md:w-80 xl:w-96 h-[180px] lg:h-[230px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
@@ -220,7 +213,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                   onClick={() => handleDivClick(5)}
                   onMouseEnter={() => handleMouseEnter(5)}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex relative justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
+                  className={`flex relative justify-center items-center bg-[#DFDFDF] p-6 rounded-2xl shadow-md row-span-3 w-[calc(100vw-50px)] md:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
@@ -240,7 +233,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                 <div
                   onMouseEnter={() => handleMouseEnter(6)}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex relative justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-2xl shadow-md row-span-3 w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
+                  className={`flex relative justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-2xl shadow-md row-span-3 w-[calc(100vw-50px)] md:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
@@ -266,13 +259,7 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
 
       <Drawer onClose={onClose} isOpen={isOpen} placement="bottom">
         <DrawerOverlay />
-        <DrawerContent
-          borderTopRadius={"16px"}
-          h={{
-            base: "80%",
-            lg: "70%",
-          }}
-        >
+        <DrawerContent borderTopRadius={"16px"} h={"auto"}>
           <DrawerCloseButton autoFocus={false} />
 
           <DrawerHeader>
