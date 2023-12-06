@@ -1,12 +1,7 @@
 import Particles from "@/components/Misc/ParticleComp";
 import ScrollAnimationWrapper from "@/components/ScrollAnimation";
 import { ActiveRing, InActiveRing } from "@/constants/Icons/Icons";
-import {
-  darkPrimary1,
-  darkPrimary2,
-  lightPrimary1,
-  lightPrimary2,
-} from "@/constants/color";
+import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -83,7 +78,8 @@ export default function About({ isOpen }: { isOpen: boolean }) {
         filter: isOpen ? "blur(2px)" : "none",
         transition: "filter 0.3s ease-in-out",
       }}
-    ><Particles />
+    >
+      <Particles />
       <ScrollAnimationWrapper
         className={`flex justify-center items-center ${roboto.className}`}
       >
