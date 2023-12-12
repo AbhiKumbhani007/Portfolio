@@ -209,8 +209,17 @@ function Header({ handleChange }: { handleChange: (x: boolean) => void }) {
               aria-label="Toggle Color Mode"
               variant="ghost"
               size="sm"
-              _hover={{ bg: colorMode === "dark" ? "blue.500" : "yellow.400" }}
-              bg={colorMode === "dark" ? "blue.500" : "yellow.400"}
+              _hover={{
+                bg:
+                  colorMode === "dark"
+                    ? "blue.500!important"
+                    : "yellow.400!important",
+              }}
+              bg={
+                colorMode === "dark"
+                  ? "blue.500!important"
+                  : "yellow.400 !important"
+              }
               color={"white"}
             >
               {colorMode === "dark" ? (
