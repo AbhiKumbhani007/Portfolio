@@ -39,6 +39,12 @@ export default function Document() {
           content="Abhishek Kumbhani's official portfolio website showcasing skills, projects, and experience in software development and technology."
         />
 
+        <meta name="robots" content="index, follow" />
+
+        <meta name="author" content="Abhishek Kumbhani" />
+
+        <meta name="publisher" content="Abhishek Kumbhani" />
+
         <link rel="canonical" href="https://abhishek-kumbhani.vercel.app/" />
         <meta
           property="og:title"
