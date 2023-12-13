@@ -38,11 +38,7 @@ export default function Document() {
           name="description"
           content="Abhishek Kumbhani's official portfolio website showcasing skills, projects, and experience in software development and technology."
         />
-        <h1>Welcome to My Portfolio</h1>
-        {/* <img
-          src="https://abhishek-kumbhani.vercel.app/portfolio.png"
-          alt="Abhishek working on a coding project"
-        /> */}
+
         <link rel="canonical" href="https://abhishek-kumbhani.vercel.app/" />
         <meta
           property="og:title"
