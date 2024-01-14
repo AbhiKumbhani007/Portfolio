@@ -233,11 +233,12 @@ function portfolio({ isOpen: open }: { isOpen: boolean }) {
                 <div
                   onMouseEnter={() => handleMouseEnter(6)}
                   onMouseLeave={handleMouseLeave}
+                  onClick={() => handleDivClick(6)}
                   className={`flex relative justify-center items-center bg-[#445964] text-[#FFFFFF] p-6 rounded-2xl shadow-md row-span-3 w-[calc(100vw-50px)] md:w-80 xl:w-96 h-[180px] select-none cursor-pointer`}
                 >
                   <div
                     style={{
-                      backgroundImage: "url('/upcoming-project.png')",
+                      backgroundImage: "url('/kirtan.png')",
                       backgroundSize: "cover",
                       backgroundPositionY: "top",
                       backgroundPositionX: "right",
@@ -365,10 +366,15 @@ const OverlayComponent = ({ divId }: { divId: number }) => {
       title: "Portfolio",
       desc: "Platform to showcase my awesome skills",
     },
+    // {
+    //   id: 6,
+    //   title: "Come back in Future..",
+    //   desc: "Secretly brewing dank ideas, y'all ain't ready for this epic sauce yet! 🔥👽",
+    // },
     {
       id: 6,
-      title: "Come back in Future..",
-      desc: "Secretly brewing dank ideas, y'all ain't ready for this epic sauce yet! 🔥👽",
+      title: "Swaminarayan Kirtan App",
+      desc: "A tool for managing Swaminarayan Kirtan while singing live kirtan.",
     },
   ];
 
@@ -467,5 +473,21 @@ const detailedContent = [
       "Demonstrating a blend of technical proficiency and artistic creativity in web development.",
     ],
     url: "https://cloudnation-frontend.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "Swaminarayan Kirtan App",
+    tagLine: "Where Art Meets Code: Front-End Perfection",
+    desc: [
+      "Developed a user-friendly software for Swaminarayan temples, enabling seamless addition and switching between multiple kirtans.",
+      "Implemented a dual-section interface where the complete kirtan text is displayed, with features to highlight and update the current line using keyboard navigation.",
+      "Introduced a dedicated section for frequently repeated lines, with the first 9 lines assigned numeric shortcuts for easy selection during satsangs.",
+      "Ensured selected kirtans are prominently displayed in a larger font at the bottom of the webpage, perfect for multicasting on large monitors during spiritual gatherings.",
+      "Each kirtan can be personalized with adjustable fontsize, fontweight, color, border color, and thickness to enhance readability and aesthetic appeal.",
+      "Utilized the IndexedDB database of web browsers for efficient data management, ensuring smooth performance and data integrity.",
+      "Integrated the ability to edit and delete kirtans with keyboard shortcuts, minimizing mouse dependency for a more streamlined user experience.",
+      "This project represents a blend of spirituality and modern technology, revolutionizing the way devotional songs are managed and presented in religious settings.",
+    ],
+    url: "http://kirtan.pcb.click/",
   },
 ];
