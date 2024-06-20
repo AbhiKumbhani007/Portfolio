@@ -358,7 +358,7 @@ const OverlayComponent = ({ divId }: { divId: number }) => {
     },
     {
       id: 4,
-      title: "Cloud Nation",
+      title: "Kuberns",
       desc: "An easy solution to deploy your web app on the cloud with just a few clicks",
     },
     {
@@ -444,20 +444,20 @@ const detailedContent = [
   },
   {
     id: 4,
-    title: "Cloud Nation",
+    title: "Kuberns",
     tagLine:
-      "Cloud Nation is an easy solution to deploy your web app on the cloud with just a few clicks",
+      "Kuberns is an easy solution to deploy your web app on the cloud with just a few clicks",
     desc: [
-      "Spearheaded the front-end development of Cloud Nation, ensuring a smooth and intuitive user experience with an emphasis on functionality and ease of use.",
-      "Crafted a responsive design for Cloud Nation, adaptable to all device sizes, from smartphones to large desktop screens.",
+      "Spearheaded the front-end development of Kuberns, ensuring a smooth and intuitive user experience with an emphasis on functionality and ease of use.",
+      "Crafted a responsive design for Kuberns, adaptable to all device sizes, from smartphones to large desktop screens.",
       "Implemented a 'few-click deployment' feature, streamlining the process for users to launch and manage their web projects quickly and efficiently.",
-      "Developed an informative overview dashboard for Cloud Nation, providing users with comprehensive insights into resources, analytics, build history, and live logs.",
+      "Developed an informative overview dashboard for Kuberns, providing users with comprehensive insights into resources, analytics, build history, and live logs.",
       "Focused on creating a seamless user interface that combines efficiency with a visually appealing design, tailored to modern web standards.",
-      "Played a key role in ensuring Cloud Nation's front-end was scalable, maintainable, and responsive, meeting the needs of a diverse user base.",
-      "Received accolades for the user-friendly design of Cloud Nation, especially for its straightforward navigation and robust feature set.",
+      "Played a key role in ensuring Kuberns's front-end was scalable, maintainable, and responsive, meeting the needs of a diverse user base.",
+      "Received accolades for the user-friendly design of Kuberns, especially for its straightforward navigation and robust feature set.",
       "Prioritized the integration of advanced features like real-time analytics and live logs to offer users a comprehensive view of their web activities.",
     ],
-    url: "https://cloudnation-frontend.vercel.app/",
+    url: "https://dashboard.kuberns.com/",
   },
   {
     id: 5,
@@ -472,7 +472,7 @@ const detailedContent = [
       "A showcase of cutting-edge web technologies blended with creative design solutions.",
       "Demonstrating a blend of technical proficiency and artistic creativity in web development.",
     ],
-    url: "https://cloudnation-frontend.vercel.app/",
+    url: "https://abhishek-kumbhani.vercel.app/",
   },
   {
     id: 6,
