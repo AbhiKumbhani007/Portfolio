@@ -9,7 +9,12 @@ import {
 } from "@/constants/Icons/SocialLogo";
 import { darkPrimary1, lightPrimary1, lightPrimary2 } from "@/constants/color";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import { Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  useBreakpointValue,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useLottie } from "lottie-react";
 import { Roboto } from "next/font/google";
@@ -127,14 +132,25 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
                 responsive web experiences with a touch of whimsy.
               </Text>
             </div>
-            <ButtonPrimary
-              className="w-fit capitalize"
-              onClick={() => {
-                router.push("/about");
-              }}
-            >
-              About Me
-            </ButtonPrimary>
+            <Box className="flex items-center gap-4">
+              <ButtonPrimary
+                className="w-fit capitalize"
+                onClick={() => {
+                  router.push("/about");
+                }}
+              >
+                About Me
+              </ButtonPrimary>
+              <ButtonPrimary
+                className="w-fit capitalize"
+                onClick={() => {
+                  window.open("https://bit.ly/Abhishek_Kumbhani_Resume", "_blank");
+                }}
+                outlined
+              >
+                Resume
+              </ButtonPrimary>
+            </Box>
             <div className="flex items-center gap-6 justify-center w-fit lg:w-[165px] xl:w-fit">
               {socialMedia.map((social) => (
                 <a

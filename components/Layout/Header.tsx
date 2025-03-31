@@ -38,11 +38,11 @@ const navLinks = [
     href: "/about",
     icon: <FaUserAstronaut size={22} />,
   },
-  {
-    name: "Portfolio",
-    href: "/portfolio",
-    icon: <MdWork size={25} />,
-  },
+  // {
+  //   name: "Portfolio",
+  //   href: "/portfolio",
+  //   icon: <MdWork size={25} />,
+  // },
   {
     name: "Techs",
     href: "/techs",
@@ -50,7 +50,7 @@ const navLinks = [
   },
   {
     name: "Experience",
-    href: "/testimonial",
+    href: "/experience",
     icon: <HiDocumentDuplicate size={25} />,
   },
   {

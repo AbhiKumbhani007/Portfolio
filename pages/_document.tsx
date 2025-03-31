@@ -10,7 +10,7 @@ export default function Document() {
     jobTitle: "Software Developer & Tech Enthusiast",
     worksFor: {
       "@type": "Organization",
-      name: "Vrutti Technologies",
+      name: "Kuberns",
     },
     alumniOf: "Sarvajanik College of Engineering & Technology",
     address: {

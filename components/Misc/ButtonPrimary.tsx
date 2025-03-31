@@ -6,9 +6,10 @@ interface Props {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  outlined?: boolean;
 }
 
-const ButtonPrimary = ({ children, className, onClick }: Props) => {
+const ButtonPrimary = ({ children, className, onClick, outlined }: Props) => {
   const primary2 = useColorModeValue(lightPrimary2, darkPrimary1);
 
   const textColor = useColorModeValue("white", "#1A202C");
@@ -16,11 +17,13 @@ const ButtonPrimary = ({ children, className, onClick }: Props) => {
   return (
     <button
       style={{
-        backgroundColor: primary2,
-        color: textColor,
+        backgroundColor: outlined ? "" : primary2,
+        color: outlined ? "" : textColor,
+        border: outlined ? "1px solid" : "",
+        borderColor: primary2,
       }}
       className={
-        "py-3 px-12 text-white font-semibold rounded-xl bg-[#263138] transition-all outline-none " +
+        `py-3 px-12 font-semibold rounded-xl transition-all border hover:border-2` +
         className
       }
       onClick={() => onClick && onClick()}
