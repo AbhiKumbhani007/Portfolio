@@ -1,0 +1,12 @@
+# Kuberns Configuration
+
+This repository is connected to Kuberns for automated deployments.
+
+The Kuberns agent monitors this repository and triggers deployment pipelines on every push to the configured branch.
+
+## How it works
+
+- On every push, the Kuberns agent picks up the latest commit and begins the build process.
+- The agent provisions the required infrastructure, builds your application, and deploys it to the target environment.
+- Deployment logs and status updates are available in real time on your Kuberns dashboard.
+
