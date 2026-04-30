@@ -16,12 +16,16 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { useLottie } from "lottie-react";
 import { Roboto } from "next/font/google";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import animation from "../constants/animations/home_illustration.json";
 import Particles from "@/components/Misc/ParticleComp";
+
+// Dynamically import lottie component to avoid SSR issues (lottie-web accesses `document` at module load)
+const LottieAnimation = dynamic(() => import("@/components/Misc/LottiePlayer"), {
+  ssr: false,
+});
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -50,18 +54,6 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
   });
 
   const router = useRouter();
-
-  const options = {
-    animationData: animation,
-    loop: true,
-  };
-
-  const style = {
-    height: height,
-    width: width,
-  };
-
-  const { View } = useLottie(options, style);
 
   const socialMedia = [
     {
@@ -169,7 +161,7 @@ export default function Home({ isOpen }: { isOpen: boolean }) {
               className="h-full w-full contents"
               variants={scrollAnimation}
             >
-              {View}
+              <LottieAnimation height={height} width={width} />
             </motion.div>
           </div>
         </motion.div>
