@@ -9,11 +9,9 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    serverActions: {
-      allowedOrigins: (process.env.ALLOWED_ORIGINS || "").split(",").filter(Boolean),
-    },
+  env: {
+    ALLOWED_ORIGINS: process.env.ALLOWED_ORIGINS || "",
   },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
